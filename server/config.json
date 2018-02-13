@@ -1,0 +1,9 @@
+{
+	"name": "Module Name",
+	"database": "database-name-here",
+	"subdomain": "subdomain",
+	"allowed_domains": ["optional.com"],
+	"admin_nav": { 
+									"index": ["Index"]
+								}
+}

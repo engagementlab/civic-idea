@@ -1,0 +1,24 @@
+// src/sass/styles.scss
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700');
+
+@import './variables';
+
+@import 
+  '~bootstrap/scss/_functions',
+  '~bootstrap/scss/_variables',
+  '~bootstrap/scss/_mixins',
+  '~bootstrap/scss/_print',
+  '~bootstrap/scss/_reboot',
+  '~bootstrap/scss/_type',
+  '~bootstrap/scss/_grid',
+  '~bootstrap/scss/_navbar';
+
+// GLOBAL STYLING
+body {
+	font-family: 'Work Sans', sans-serif;
+	font-size: 16px;
+}
+
+h1 {
+  font-size: 1.5em;
+}

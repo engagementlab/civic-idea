@@ -1,0 +1,35 @@
+@import "~sass/_variables";
+
+nav {
+
+	color: black;
+	text-transform: uppercase;
+	@include semi-bold;
+	
+	h1 {
+	  float: left;
+		@include semi-bold;
+	}
+	
+	.navbar-brand {
+		color: black;
+	}
+
+	#main-nav ul {
+		float: right;
+		list-style: none;
+		li {
+	    margin: 0 3px;
+			float: left;
+		}
+		a {
+			font-size: 1.5em;
+			color: black;
+			border-bottom: solid 4px $yellow;
+			&:hover {
+				text-decoration: none;
+				border-bottom: none;
+			}
+		}
+	}
+}
