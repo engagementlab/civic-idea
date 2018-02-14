@@ -1,10 +1,10 @@
 {
-  "name": "angular-test",
-  "description": "EL Web SDK Starter Module",
+  "name": "civic-idea",
+  "description": "Data backend for Civic Idea site.",
   "version": "0.0.4",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/engagementgamelab/starter-module.git"
+    "url": "git+https://github.com/engagementgamelab/civic-idea.git"
   },
   "main": "app.js",
   "dependencies": {

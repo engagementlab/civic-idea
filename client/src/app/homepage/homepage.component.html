@@ -1,15 +1,21 @@
-  <div id="blurb" class="col-md-7 offset-md-5">
-  	Art party vinyl twee, microdosing pinterest thundercats kombucha raw denim blue bottle tumeric letterpress slow-carb quinoa.
+  <div id="blurb" class="col-md-12">
+    <!-- <img src="assets\img\myimage.png"> -->
+    <div class="col-md-7 offset-md-5">
+    	Art party vinyl twee, microdosing pinterest thundercats kombucha raw denim blue bottle tumeric letterpress slow-carb quinoa.
+    </div>
   </div>
 
-  <div class="row">
-    <div class="col-md-6">
-      <img src="http://via.placeholder.com/597x447">
-      <h2 class="letter">I</h2>
+  <div *ngFor="let tool of tools; let odd = odd; let i = index;" class="row" [class.reverse]="odd">
+    <div class="col-md-5 offset-md-1">
+      <h2 class="letter" *ngIf="i==0">I</h2>
+      <h2 class="letter" *ngIf="i==1">D</h2>
+      <h2 class="letter" *ngIf="i==2">E</h2>
+      <h2 class="letter" *ngIf="i==3">A</h2>
+      <img src="http://via.placeholder.com/597x447" alt="{{tool.name}} imagery" />
     </div>
-    <div class="col-md-6">
-      <h2>Databasic.io</h2>
-      <p>DIY echo park viral, mustache waistcoat forage salvia swag austin jianbing VHS direct trade roof party. Pug 90's tote bag, disrupt fixie sriracha vaporware gentrify. Four dollar toast vegan mixtape twee. Celiac butcher drinking vinegar, franzen disrupt health goth mixtape vape succulents yuccie pour-over man bun activated charcoal narwhal.</p>
-      <a class="btn btn-secondary" href="#" role="button">View more »</a>
+    <div class="col-md-5">
+      <h2 id="{{tool.name | cleanString}}_label">{{tool.name}}</h2>
+      <p>{{tool.intro}}</p>
+      <a class="btn" [class.odd]="odd" role="button" routerLink="/module/{{tool.url}}"  routerLinkActive="active" attr.aria-label="Read more about {{tool.name}}" attr.aria-labeledby="{{tool.name | cleanString}}_label">View more &rarr;</a>
     </div>
   </div>
