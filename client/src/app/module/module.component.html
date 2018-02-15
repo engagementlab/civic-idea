@@ -1,3 +1,14 @@
-<p>
-  module works!
-</p>
+<div id="header">
+	<h2>Investigate</h2>
+	<h1 class="letter">{{module?.name}}</h1>
+</div>
+
+  <div id="blurb" class="col-md-12">
+    <div class="col-md-6">
+      <img src="http://via.placeholder.com/597x447" alt="{{module?.name}} imagery" />
+    </div>
+    <div class="col-md-6">
+    	<p>{{module?.intro}}</p>
+      <app-button label="Visit &rarr;" href="http://www.website.com" ariaLabel="Read more about {{module.name}}"></app-button>
+    </div>
+  </div>

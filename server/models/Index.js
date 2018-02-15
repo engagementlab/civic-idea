@@ -1,5 +1,5 @@
 /**
- * (App name here) 
+ * Civic IDEA
  * 
  * Index page Model
  * @module index

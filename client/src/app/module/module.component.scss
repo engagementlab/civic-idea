@@ -1,0 +1,25 @@
+@import "~sass/_variables";
+
+#header {
+
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+
+	@include mq($from: mobile, $until: tablet) {
+	 width: 100%;
+	 .letter {
+		font-size: em(50px);
+	 }
+	}
+	@include mq($from: tablet) {
+	 	width: 50%;
+	}
+}
+
+.letter {
+
+	font-size: em(90px);
+	@include yellow-stroke(2);
+
+}

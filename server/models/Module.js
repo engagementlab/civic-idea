@@ -31,7 +31,8 @@ var Module = new keystone.List('Module',
 Module.add({
 
 	name: { type: String, label: 'Name', required: true, initial: true },
-	url: { type: String, label: 'Module URL', required: true, initial: true },
+	url: { type: String, label: 'Module Internal URL', required: true, initial: true, note: 'What\'s the module\'s URL for this site (\\nameofmodule)?' },
+	website: { type: String, label: 'Website URL', required: true, initial: true },
 
 	intro: { type: Types.Text, label: 'Intro Text', required: true, initial: true },
 	introImage: { type: Types.CloudinaryImage, label: 'Intro Image', folder: 'city-accelerator', autoCleanup: true },

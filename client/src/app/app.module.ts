@@ -7,30 +7,29 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { MessagesComponent } from './messages/messages.component';
-import { MessageService } from './message.service';
-import { ModuleService } from './module/module.service';
+import { JsonService } from './json.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ModuleComponent } from './module/module.component';
 import { ModuleIntroComponent } from './tool-intro/tool-intro.component';
 import { CleanStringPipe } from './clean-string.pipe';
+import { ButtonComponent } from './button/button.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
-  { path: 'modules/:id', component: ModuleComponent }
+  { path: 'module/:id', component: ModuleComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    MessagesComponent,
     AppNavbarComponent,
     HomepageComponent,
     ModuleIntroComponent,
     CleanStringPipe,
-    ModuleComponent
+    ModuleComponent,
+    ButtonComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -38,16 +37,15 @@ const appRoutes: Routes = [
     ),
     BrowserModule,
     FormsModule,
-    AppRoutingModule,
     HttpClientModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    AppRoutingModule
   ],
   exports: [
     RouterModule
   ],
   providers: [
-    MessageService,
-    ModuleService
+    JsonService
   ],
   bootstrap: [AppComponent]
 })

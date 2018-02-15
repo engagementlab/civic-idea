@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { JsonService } from '../json.service';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-module',
@@ -6,10 +10,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./module.component.scss']
 })
 export class ModuleComponent implements OnInit {
+	
+	module: Observable<any>;
+	moduleId: string;
 
-  constructor() { }
+	getModule() {
+
+
+		this.jsonSvc.getModuleByUrl(this.moduleId)
+			.subscribe(response => this.module = response.data);
+
+	}
+
+	constructor(private route: ActivatedRoute, private router: Router, private jsonSvc: JsonService) {
+		
+		this.moduleId = this.route.snapshot.params.id;
+		this.getModule();
+
+	}
 
   ngOnInit() {
+
   }
 
 }

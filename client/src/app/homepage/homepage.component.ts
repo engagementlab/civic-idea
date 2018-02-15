@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModuleService } from '../module/module.service';
+import { JsonService } from '../json.service';
 
 @Component({
   selector: 'app-homepage',
@@ -9,13 +9,13 @@ import { ModuleService } from '../module/module.service';
 export class HomepageComponent implements OnInit {
   
   getModules(): void {
-    this.moduleSvc.getModules()
-        .subscribe(response => this.tools = response.data);
+    this.jsonSvc.getModules()
+        .subscribe(response => this.modules = response.data);
   }
 
-  tools: any[];
+  modules: any[];
 
-  constructor(private moduleSvc: ModuleService) { }
+  constructor(private jsonSvc: JsonService) { }
 
   ngOnInit() {
     this.getModules();

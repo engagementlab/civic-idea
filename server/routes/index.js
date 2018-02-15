@@ -49,5 +49,6 @@ router.all('/admin', function(req, res, next) {
 // Views
 // router.get('/', routes.views.index);
 router.get('/api/modules/get', keystone.middleware.api, routes.api.modules.get);
+router.get('/api/modules/get/:url', keystone.middleware.api, routes.api.modules.getByUrl);
 
 module.exports = router;

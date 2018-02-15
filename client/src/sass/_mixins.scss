@@ -2,6 +2,22 @@
 	font-weight: 600;
 }
 
+@mixin yellow-stroke($px) {
+
+    $width: #{$px}px;
+    color: rgba(0, 0, 0, 0);
+    -webkit-text-stroke: $width $light-gold;
+    font-weight: bold;
+
+    // IE 11 fallback
+    _:-ms-fullscreen, :root .selector 
+    {
+      color: $light-gold;
+      -webkit-text-fill-color: transparent;
+    }
+
+}
+
 // PX TO EM
 $base-font-size: 16px;
 /**
