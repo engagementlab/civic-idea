@@ -1,5 +1,4 @@
 @import "~sass/_variables";
-
 #header {
 
 	margin-left: auto;
@@ -22,4 +21,41 @@
 	font-size: em(90px);
 	@include yellow-stroke(2);
 
+}
+
+.guide {
+
+	ul {
+	  list-style: none;
+	  margin-left: 0;
+	  padding-left: 0;
+	}
+
+	li {
+	  padding-left: 1em;
+	  text-indent: -1em;
+	}
+
+	li:before {
+	  content: "\2014";
+	  padding-right: 5px;
+	  font-weight: bold;
+	}
+
+	&:not(:nth-child(3n)) {
+		border-right: solid 2px black;
+	}
+
+}
+
+
+h3 {
+	&:after {
+	  content: ''; 
+	  width: 60px; 
+	  height: 4px; 
+	  background: $light-gold; 
+	  bottom: -10px;
+		display: flex;
+	}
 }

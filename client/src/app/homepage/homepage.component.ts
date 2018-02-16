@@ -9,11 +9,13 @@ import { JsonService } from '../json.service';
 export class HomepageComponent implements OnInit {
   
   getModules(): void {
+    this.isLoading = true;
     this.jsonSvc.getModules()
-        .subscribe(response => this.modules = response.data);
+        .subscribe(response => this.modules = response.data; this.isLoading = false;);
   }
 
   modules: any[];
+  isLoading: boolean
 
   constructor(private jsonSvc: JsonService) { }
 

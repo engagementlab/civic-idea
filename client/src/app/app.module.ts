@@ -9,15 +9,20 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { JsonService } from './json.service';
 import { AppRoutingModule } from './/app-routing.module';
+
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
+import { AppFooterComponent } from './app-footer/app-footer.component';
+
 import { HomepageComponent } from './homepage/homepage.component';
 import { ModuleComponent } from './module/module.component';
+import { AboutComponent } from './about/about.component';
 import { ModuleIntroComponent } from './tool-intro/tool-intro.component';
 import { CleanStringPipe } from './clean-string.pipe';
 import { ButtonComponent } from './button/button.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
+  { path: 'about', component: AboutComponent },
   { path: 'module/:id', component: ModuleComponent }
 ];
 
@@ -25,11 +30,13 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     AppNavbarComponent,
+    AppFooterComponent,
     HomepageComponent,
     ModuleIntroComponent,
     CleanStringPipe,
     ModuleComponent,
-    ButtonComponent
+    ButtonComponent,
+    AboutComponent
   ],
   imports: [
     RouterModule.forRoot(

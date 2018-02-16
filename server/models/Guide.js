@@ -33,7 +33,7 @@ var Guide = new keystone.List('Guide',
 Guide.add({
 	name: { type: String, default: "Guide Title", label: "Title", required: true, initial: true },
 	intro: { type: Types.Markdown, label: "Text", initial: true, required: true },
-	linkUrl: { type: String, default: "https://", label: "Link URL", required: true, initial: true },
+	linkUrl: { type: Types.Url, default: "https://", label: "Link URL", required: true, initial: true },
   module: {
       type: Types.Relationship,
       ref: 'Module',

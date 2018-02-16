@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { JsonService } from '../json.service';
 import { Observable } from 'rxjs/Observable';
@@ -7,7 +7,8 @@ import 'rxjs/add/operator/switchMap';
 @Component({
   selector: 'app-module',
   templateUrl: './module.component.html',
-  styleUrls: ['./module.component.scss']
+  styleUrls: ['./module.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ModuleComponent implements OnInit {
 	

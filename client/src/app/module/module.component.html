@@ -3,12 +3,23 @@
 	<h1 class="letter">{{module?.name}}</h1>
 </div>
 
-  <div id="blurb" class="col-md-12">
-    <div class="col-md-6">
-      <img src="http://via.placeholder.com/597x447" alt="{{module?.name}} imagery" />
-    </div>
-    <div class="col-md-6">
-    	<p>{{module?.intro}}</p>
-      <app-button label="Visit &rarr;" href="http://www.website.com" ariaLabel="Read more about {{module.name}}"></app-button>
-    </div>
+<div class="row">
+  <div class="col-md-6">
+    <img src="http://via.placeholder.com/597x447" alt="{{module?.name}} imagery" />
   </div>
+  <div class="col-md-6">
+  	<p>{{module?.intro}}</p>
+    <app-button label="Visit &rarr;" href="http://www.website.com" ariaLabel="Read more about {{module?.name}}"></app-button>
+  </div>
+</div>
+
+<h3>Activity Guides</h3>
+<div class="row">
+
+  <div *ngFor="let guide of module?.guides;" class="col-md-4 guide">
+    <h4 id="{{guide.name | cleanString}}_label">{{guide.name}}</h4>
+    <p [innerHtml]="guide.intro.html"></p>
+    <app-button label="Download pdf &#10515;" href="{{module.linkUrl}}" ariaLabel="Download PDF for {{guide.name}}"></app-button>
+  </div>
+
+</div>
