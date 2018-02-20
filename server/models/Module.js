@@ -22,6 +22,8 @@ var Module = new keystone.List('Module',
 		label: 'Modules',
 		singular: 'Module',
 		autokey: { path: 'key', from: 'name', unique: true },
+		nocreate: true,
+		nodelete: true
 	});
 
 /**
@@ -35,7 +37,7 @@ Module.add({
 	website: { type: Types.Url, label: 'Website URL', required: true, initial: true },
 
 	intro: { type: Types.Text, label: 'Intro Text', required: true, initial: true },
-	introImage: { type: Types.CloudinaryImage, label: 'Intro Image', folder: 'city-accelerator', autoCleanup: true },
+	introImage: { type: Types.CloudinaryImage, label: 'Intro Image', folder: 'civic-idea', autoCleanup: true, note: 'Dimensions should be 597x447.' },
 
   guides: {
       type: Types.Relationship,
@@ -54,5 +56,5 @@ Module.add({
  * Model Registration
  */
 Module.defaultSort = '-createdAt';
-Module.defaultColumns = 'name, updatedAt';
+Module.defaultColumns = 'name';
 Module.register();

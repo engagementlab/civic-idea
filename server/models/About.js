@@ -1,9 +1,9 @@
 /**
  * Civic IDEA
  * 
- * Guide page Model
- * @module guide
- * @class guide
+ * About page Model
+ * @module index
+ * @class index
  * @author Johnny Richardson
  * 
  * For field docs: http://keystonejs.com/docs/database/
@@ -15,15 +15,16 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 /**
- * guide model
+ * index model
  * @constructor
  * See: http://keystonejs.com/docs/database/#lists-options
  */
-var Guide = new keystone.List('Guide', 
+var About = new keystone.List('About', 
 	{
-		label: 'Guides',
-		singular: 'Guide',
-		nodelete: true
+		label: 'About Page',
+		singular: 'About Page',
+		nodelete: true,
+		nocreate: true
 	});
 
 // Storage adapter for Azure
@@ -45,25 +46,22 @@ const azureFile = new keystone.Storage({
 
 /**
  * Model Fields
- * @main Guide
+ * @main About
  */
-Guide.add({
-	name: { type: String, default: "Guide Title", label: "Title", required: true, initial: true },
-	intro: { type: Types.Markdown, label: "Text", initial: true, required: true },
-	guidePdf: { type: Types.File, label: "Guide PDF", storage: azureFile },
-  module: {
-      type: Types.Relationship,
-      ref: 'Module',
-      label: 'Module',
-      note: 'The Module this guide is for.'
-  },
-	
+About.add({
+	name: { type: String, default: "About Page", hidden: true, required: true, initial: true },
+	blurb: { type: Types.Markdown, label: "Blurb Text", initial: true, required: true },
+	description: { type: Types.Markdown, label: "Description", initial: true, required: true },
+	conceptDescription: { type: Types.Markdown, label: "Concept Paper Description", initial: true, required: true },
+
+	conceptPdf: { type: Types.File, label: "Concept PDF", storage: azureFile },
+
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
 });
 
 /**
  * Model Registration
  */
-Guide.defaultSort = '-createdAt';
-Guide.defaultColumns = 'name, module';
-Guide.register();
+About.defaultSort = '-createdAt';
+About.defaultColumns = 'name';
+About.register();

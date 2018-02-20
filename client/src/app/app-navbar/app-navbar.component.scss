@@ -6,6 +6,9 @@ nav {
 	text-transform: uppercase;
 	@include semi-bold;
 	
+	a {
+		color: black;
+	}
 	h1 {
 	  float: left;
 		@include semi-bold;

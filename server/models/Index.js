@@ -42,5 +42,5 @@ Index.add({
  * Model Registration
  */
 Index.defaultSort = '-createdAt';
-Index.defaultColumns = 'name, updatedAt';
+Index.defaultColumns = 'name';
 Index.register();

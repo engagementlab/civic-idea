@@ -2,7 +2,6 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { JsonService } from '../json.service';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-module',
@@ -12,14 +11,15 @@ import 'rxjs/add/operator/switchMap';
 })
 export class ModuleComponent implements OnInit {
 	
-	module: Observable<any>;
+	module: any;
 	moduleId: string;
 
 	getModule() {
 
-
-		this.jsonSvc.getModuleByUrl(this.moduleId)
-			.subscribe(response => this.module = response.data);
+    this.jsonSvc.getAllData()
+        .subscribe(response => {
+          this.module = response.modules.filter(module => module.url === this.moduleId)[0];
+        });
 
 	}
 

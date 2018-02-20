@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { JsonService } from '../json.service';
 
 @Component({
   selector: 'app-about',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+	about: any;
+	getData() {
 
-  ngOnInit() {
+    this.jsonSvc.getAllData()
+		    .subscribe(response => {
+		    	this.about = response.aboutPage;
+		    });
+
+	}
+
+  constructor(private route: ActivatedRoute, private router: Router, private jsonSvc: JsonService) {
+  
+  	this.getData();
+  
   }
+
+  ngOnInit() {}
 
 }

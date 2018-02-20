@@ -7,21 +7,39 @@ import { catchError } from 'rxjs/operators';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
+import 'rxjs/add/observable/of';
 
 @Injectable()
 export class JsonService {
 
 	baseUrl = 'http://localhost:3000/api/';
 
-  constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) {}
 
-	getModules(): Observable<any> {
+    modules: any[];
+    index: any;
+    data: any;
+    haveData: boolean;
+	
+    getAllData(): Observable<any> {
 
-	  return this.http.get(this.baseUrl+'modules/get')
-    .map((res:any)=> res)
-    .catch((error:any) => { 
-        return Observable.throw(error);
-    })
+        if(this.haveData) {
+            console.log('haveData');
+            return Observable.of(this.data).map((d:any) => d);
+        }
+        else  {
+            return this.http.get(this.baseUrl+'modules/get')
+            .map((res:any)=> {
+              this.data = res.data;
+              this.haveData = true;
+
+              return res.data;
+            })
+            .catch((error:any) => { 
+                return Observable.throw(error);
+            })
+
+        }
 	}
 
 	getModuleByUrl(url: string): Observable<any> {

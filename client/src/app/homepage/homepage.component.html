@@ -1,7 +1,13 @@
   <div id="blurb" class="col-md-12">
     <!-- <img src="assets\img\myimage.png"> -->
-    <div class="col-md-7 offset-md-5">
-    	Art party vinyl twee, microdosing pinterest thundercats kombucha raw denim blue bottle tumeric letterpress slow-carb quinoa.
+    <div class="col-md-8 offset-md-2">
+      <div [innerHtml]="index.intro.html"></div>
+      <div id="modules">
+        <a href="#databasic.io">Databasic.io</a>
+        <a href="#@stake">@Stake</a>
+        <a href="#mediabreaker">Media Breaker</a>
+        <a href="#emergingcitizens">Emerging Citizens</a>
+      </div>
     </div>
   </div>
 
@@ -11,10 +17,10 @@
       <h2 class="letter" *ngIf="i==1">D</h2>
       <h2 class="letter" *ngIf="i==2">E</h2>
       <h2 class="letter" *ngIf="i==3">A</h2>
-      <img src="http://via.placeholder.com/597x447" alt="{{module.name}} imagery" />
+      <img src="{{module.introImage}}" alt="{{module.name}} imagery" />
     </div>
-    <div class="col-md-5">
-      <h2 id="{{module.name | cleanString}}_label">{{module.name}}</h2>
+    <div class="col-md-5 condense">
+      <a name="{{module.name | cleanString}}"><h2 id="{{module.name | cleanString}}_label">{{module.name}}</h2></a>
       <p>{{module.intro}}</p>
       <app-button label="View more &rarr;" route="/module/{{module.url}}" ariaLabel="Read more about {{module.name}}"></app-button>
     </div>

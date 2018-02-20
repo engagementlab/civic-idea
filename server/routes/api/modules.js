@@ -8,27 +8,29 @@
  * ==========
  */
 const keystone = require('keystone'),
-      Module = keystone.list('Module'),
-      Guide = keystone.list('Guide');
+      Index = keystone.list('Index'),
+      About = keystone.list('About'),
+      Module = keystone.list('Module'));
 
 /*
  * Get all modules
  */
 exports.get = function(req, res) {
-    Module.model.find({}).populate('guides').exec(function(err, items) {
-        
-        if (err) return res.apiError('database error', err);
-        if (!items) return res.apiError('not found');
-        if (items.length < 1) return res.status(500).send('No items found!');
 
-        // _.each(items, module => {
-        //         module.guide = Guide.model.findOne({module: module.id});
-        //         console.log(module.guide)
-        //     }
-        // );
+    Index.model.findOne({}).exec(function(err, index) {
+        About.model.findOne({}).exec(function(err, about) {
 
-        return res.status(200).json({status: 200, data: items});
-        
+            Module.model.find({}).sort({ sortOrder: 1 }).populate('guides').exec(function(err, items) {
+                
+                if (err) return res.apiError('database error', err);
+                if (!items) return res.apiError('not found');
+                if (items.length < 1) return res.status(500).send('No items found!');
+
+                return res.status(200).json({status: 200, data: {indexPage: index, aboutPage: about, modules: items}});
+                
+            });
+
+        });
     });
 }
 

@@ -1,4 +1,4 @@
-<div id="loading" *ngIf="isLoading"></div>
+<!-- <div id="loading"></div> -->
 <app-navbar></app-navbar> 
 <main role="main" class="container">
 
@@ -8,7 +8,14 @@
 	
 </main>
 <app-footer></app-footer>
+<!-- <script>
 
-<!-- 
-<app-heroes></app-heroes>
-<app-messages></app-messages> -->
+	var winWidth = $(window).width();
+	var winHeight = $(window).height();
+	$(window).resize(function(){
+    $('div#loading').css({
+	    'width': winWidth,
+	    'height': winHeight,
+		});
+	})
+</script> -->

@@ -7,20 +7,27 @@ import { JsonService } from '../json.service';
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
+
+  index: any;
+  modules: any[];
   
-  getModules(): void {
+  getData(): void {
     this.isLoading = true;
-    this.jsonSvc.getModules()
-        .subscribe(response => this.modules = response.data; this.isLoading = false;);
+    this.jsonSvc.getAllData()
+        .subscribe(response => {
+          
+          this.modules = response.modules;
+          this.index = response.indexPage;
+          
+        });
   }
 
-  modules: any[];
   isLoading: boolean
 
   constructor(private jsonSvc: JsonService) { }
 
   ngOnInit() {
-    this.getModules();
+    this.getData();
   }
 
 }

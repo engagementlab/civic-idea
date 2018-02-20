@@ -3,6 +3,7 @@
 	"database": "civic-idea",
 	"subdomain": "ci",
 	"admin_nav": { 
-									"index": ["Index"]
+									"index": ["Index"],
+									"modules": ["Module", "Guide"]
 								}
 }
