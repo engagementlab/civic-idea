@@ -15,6 +15,7 @@ import { AppFooterComponent } from './app-footer/app-footer.component';
 
 import { HomepageComponent } from './homepage/homepage.component';
 import { ModuleComponent } from './module/module.component';
+import { GuidesComponent } from './guides/guides.component';
 import { AboutComponent } from './about/about.component';
 import { ModuleIntroComponent } from './tool-intro/tool-intro.component';
 import { CleanStringPipe } from './clean-string.pipe';
@@ -23,6 +24,7 @@ import { ButtonComponent } from './button/button.component';
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'guides', component: GuidesComponent },
   { path: 'module/:id', component: ModuleComponent }
 ];
 
@@ -36,7 +38,8 @@ const appRoutes: Routes = [
     CleanStringPipe,
     ModuleComponent,
     ButtonComponent,
-    AboutComponent
+    AboutComponent,
+    GuidesComponent
   ],
   imports: [
     RouterModule.forRoot(

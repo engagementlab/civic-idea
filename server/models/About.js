@@ -53,7 +53,6 @@ About.add({
 	blurb: { type: Types.Markdown, label: "Blurb Text", initial: true, required: true },
 	description: { type: Types.Markdown, label: "Description", initial: true, required: true },
 	conceptDescription: { type: Types.Markdown, label: "Concept Paper Description", initial: true, required: true },
-
 	conceptPdf: { type: Types.File, label: "Concept PDF", storage: azureFile },
 
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }

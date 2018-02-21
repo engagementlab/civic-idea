@@ -1,20 +1,44 @@
-<div class="row">
+<div class="row" id="about">
   <div class="col-md-12">
-    <img src="http://via.placeholder.com/1333x497" alt="About" />
 		<h1 class="letter">About</h1>
-  </div>
-  <div class="col-md-6 condense">
-  	<p>{{module?.intro}}</p>
-    <app-button label="Visit &rarr;" href="http://www.website.com" ariaLabel="Read more about {{module.name}}"></app-button>
   </div>
 </div>
 
 <div class="row">
 
-  <div class="col-md-3 guide condense">
+  <div class="col-md-6 condense">
+		<h3>Description</h3>
+  	<p [innerHtml]="about?.description.html"></p>
+  </div>
+  <div class="col-md-5 offset-md-1 condense" id="guide">
     <h4>Civic IDEA Concept Paper</h4>
-    <p [innerHtml]="guide.intro.html"></p>
-    <app-button label="Download pdf &#10515;" href="{{module.linkUrl}}" ariaLabel="Download PDF for {{guide.name}}"></app-button>
+    <p [innerHtml]="about?.conceptDescription.html"></p>
+    <app-button label="Download pdf &#10515;" href="{{about?.conceptPdf.url}}" ariaLabel="Download Concept PDF"></app-button>
+  </div>
+
+</div>
+
+
+<div class="row">
+
+  <div class="col-md-6 condense">
+	
+		<h3>Contact us</h3>
+  	<p>Pickled typewriter tumeric freegan fanny pack banjo everyday carry sartorial drinking vinegar vexillologist. Ennui raclette distillery 90's tilde vaporware try-hard portland green juice. <br />
+  		<strong>1-555-1234<p>120 Boylston Street<br />Boston, MA 02116</p>
+
+email@civicidea.com</strong>
+  	</p>
+  </div>
+  <div class="col-md-3 condense">
+  	<form id="contact-form">
+  		<label for="name-field" class="text-label">Name</label><input name="name-field" type="text" placeholder="Input value">
+	  	<label for="email-field" class="text-label">Email</label><input name="email-field" type="text" placeholder="Input value">
+	  	<label for="phone-field" class="text-label">Phone</label><input name="phone-field" type="tel" placeholder="Input value">
+	  	<label for="message-field" class="text-label">Message</label><textarea name="message-field" rows="5" cols="50" placeholder="Write something here"></textarea>
+	 </form>
+
+  	<app-button label="send message" href="" ariaLabel="Send form"></app-button>
   </div>
 
 </div>

@@ -1,0 +1,14 @@
+<div class="row" id="guides">
+  <div class="col-md-12">
+		<h1 class="letter">Guides</h1>
+  </div>
+</div>
+
+<div *ngFor="let module of modules" class="row">
+	<h3>{{module.name}}</h3>
+  <div *ngFor="let guide of module.guides" class="col-md-4 guide condense">
+    <p id="{{guide.name | cleanString}}_label">{{guide.name}}</p>
+    <!-- <app-button label="Download pdf &#10515;" href="{{module.linkUrl}}" ariaLabel="Download PDF for {{guide.name}}"></app-button> -->
+  </div>
+
+</div>

@@ -8,30 +8,68 @@
  * ==========
  */
 const keystone = require('keystone'),
+      mongoose = keystone.get('mongoose'),
+      Bluebird = require('bluebird'),
       Index = keystone.list('Index'),
       About = keystone.list('About'),
-      Module = keystone.list('Module'));
+      Module = keystone.list('Module');
+
+mongoose.Promise = require('bluebird');
+
+var buildData = (params, res) => {
+
+    let dataObj = {};
+    let promises = [];
+
+    let index = Index.model.findOne({}).exec();
+    let about = About.model.findOne({}).exec();
+    let modules = Module.model.find({}).sort({ sortOrder: 1 }).populate('guides').exec();
+
+    switch(params.type) {
+        case 'index':
+            promises.push(index);
+            // promises.push(about);
+            promises.push(modules);
+            break;
+        case 'guides':
+            promises.push(modules);
+            break;
+        case 'about':
+            promises.push(about);
+            break;
+    }
+/*
+    function(err, items) {
+        
+        if (err) return res.apiError('database error', err);
+        if (!items) return res.apiError('not found');
+        if (items.length < 1) return res.status(500).send('No items found!');
+
+        
+    });*/
+
+    return Bluebird.all(promises.map(function (promise) {
+      return promise.reflect();
+    }))
+    .then(response => {
+
+        let plucked = _.pluck(response, '_settledValueField');
+
+        return res.status(200).json({status: 200, data: plucked});
+
+    }).catch(err => {
+        console.log(err);
+    })
+
+}
 
 /*
  * Get all modules
  */
 exports.get = function(req, res) {
 
-    Index.model.findOne({}).exec(function(err, index) {
-        About.model.findOne({}).exec(function(err, about) {
+    return buildData(req.params, res);
 
-            Module.model.find({}).sort({ sortOrder: 1 }).populate('guides').exec(function(err, items) {
-                
-                if (err) return res.apiError('database error', err);
-                if (!items) return res.apiError('not found');
-                if (items.length < 1) return res.status(500).send('No items found!');
-
-                return res.status(200).json({status: 200, data: {indexPage: index, aboutPage: about, modules: items}});
-                
-            });
-
-        });
-    });
 }
 
 /*

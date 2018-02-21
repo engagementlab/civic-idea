@@ -31,6 +31,17 @@ h1, h2 {
   font-size: 1.5em;
 }
 
+h3 {
+  &:after {
+    content: ''; 
+    width: 60px; 
+    height: 4px; 
+    background: $light-gold; 
+    bottom: -10px;
+    display: flex;
+  }
+}
+
 img {
   width: 100%;
 }

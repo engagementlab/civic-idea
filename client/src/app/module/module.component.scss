@@ -40,15 +40,3 @@
 	}
 
 }
-
-
-h3 {
-	&:after {
-	  content: ''; 
-	  width: 60px; 
-	  height: 4px; 
-	  background: $light-gold; 
-	  bottom: -10px;
-		display: flex;
-	}
-}

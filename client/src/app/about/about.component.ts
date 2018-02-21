@@ -12,9 +12,9 @@ export class AboutComponent implements OnInit {
 	about: any;
 	getData() {
 
-    this.jsonSvc.getAllData()
+    this.jsonSvc.getAllData('about')
 		    .subscribe(response => {
-		    	this.about = response.aboutPage;
+		    	this.about = response.get("about");
 		    });
 
 	}

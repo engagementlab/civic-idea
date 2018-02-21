@@ -16,9 +16,9 @@ export class ModuleComponent implements OnInit {
 
 	getModule() {
 
-    this.jsonSvc.getAllData()
+    this.jsonSvc.getAllData('module/'+this.moduleId)
         .subscribe(response => {
-          this.module = response.modules.filter(module => module.url === this.moduleId)[0];
+          this.module = response.get(this.moduleId);
         });
 
 	}

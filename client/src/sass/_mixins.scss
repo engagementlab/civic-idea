@@ -89,3 +89,31 @@ $base-font-size: 16px;
   -o-transition: $transition-property $transition-time $method;
   transition: $transition-property $transition-time $method;
 }
+
+@mixin placeholder {
+
+    &::placeholder {
+      opacity: 1;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: em(16px);
+      font-weight: 300;
+      font-stretch: condensed;
+      color: $pinkish-grey;
+    }
+    &:-ms-input-placeholder {
+      opacity: 1;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: em(16px);
+      font-weight: 300;
+      font-stretch: condensed;
+      color: $pinkish-grey;
+    }
+    &::-ms-input-placeholder {
+      opacity: 1;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: em(16px);
+      font-weight: 300;
+      font-stretch: condensed;
+      color: $pinkish-grey;      
+    }
+}
