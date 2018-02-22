@@ -51,11 +51,14 @@ Guide.add({
 	name: { type: String, default: "Guide Title", label: "Title", required: true, initial: true },
 	intro: { type: Types.Markdown, label: "Text", initial: true, required: true },
 	guidePdf: { type: Types.File, label: "Guide PDF", storage: azureFile },
+  thumbnail: { type: Types.CloudinaryImage, label: 'Thumbnail Image', folder: 'civic-idea', autoCleanup: true, note: 'Dimensions should be at least 398x497.' },
   module: {
       type: Types.Relationship,
       ref: 'Module',
       label: 'Module',
-      note: 'The Module this guide is for.'
+      note: 'The Module this guide is for.',
+      required: true,
+      initial: true
   },
 	
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }

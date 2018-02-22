@@ -2,15 +2,15 @@
 #guides {
 
 	@include mq($from: mobile) {
-		background: url(http://via.placeholder.com/1333x297);
+		// background: url(http://via.placeholder.com/1333x297);
 		min-height: 297px;
 	}
 	@include mq($from: tablet, $and: '(orientation: landscape)') {
-		background: url(http://via.placeholder.com/1333x297);
+		// background: url(http://via.placeholder.com/1333x297);
 		min-height: 297px;
 	}
 	@include mq($from: wide) {
-		background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,w_1339/v1519239488/civic-idea/civic-idea-about_2x.png);
+		// background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,w_1339/v1519239488/civic-idea/civic-idea-about_2x.png);
 		min-height: 500px;
 	}
 
@@ -21,4 +21,54 @@
 	}
 
 	margin-bottom: 7%;
+}
+
+.module {
+
+	.row {
+		padding-top: 3%;
+	}
+	
+	.guide {
+
+		p {
+		  font-size: em(24px);
+		  font-weight: 500;
+		  float: left;
+		}
+
+		a {
+			color: white;
+		  background-color: $dusty-orange;
+		  float: right;
+		  width: 50px;
+		  height: 50px;
+		  text-align: center;
+		  &:hover {
+		  	img {
+		  		-webkit-transform: scale(1.8);
+	        transform: scale(1.8);
+		  	}
+		  }
+
+			img {
+				width: 20px;
+				padding-top: 25%;
+				@include transition(all, 150ms, cubic-bezier(1.000, 0.000, 0.000, 1.000));
+			}
+		}
+
+		&:not(:nth-child(3n)) {
+
+			@include mq($from: tablet, $and: '(orientation: landscape)') {
+				border-right: solid 1px black;
+			}
+		}
+
+		.bottom {
+			padding-top: 4%;
+		}
+
+	}
+
 }

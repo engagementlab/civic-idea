@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { JsonService } from '../json.service';
+import { fadeInAnimation } from '../_animations/fade';
 
 @Component({
   selector: 'app-guides',
   templateUrl: './guides.component.html',
-  styleUrls: ['./guides.component.scss']
+  styleUrls: ['./guides.component.scss'],
+  animations: [fadeInAnimation],
+  host: { '[@fadeInAnimation]': '' }
 })
 export class GuidesComponent implements OnInit {
 

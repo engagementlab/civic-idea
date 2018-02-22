@@ -12,26 +12,64 @@ nav {
 	h1 {
 	  float: left;
 		@include semi-bold;
+		@include mq($from: mobile, $until: tablet) {
+			font-size: em(14px);
+		}
 	}
 	
 	.navbar-brand {
 		color: black;
 	}
 
+	#logo {
+		width: 32px;
+		margin-right: 5px;
+	}
+
 	#main-nav ul {
 		float: right;
 		list-style: none;
+		padding: 0;
 		li {
 	    margin: 0 3px;
 			float: left;
 		}
 		a {
-			font-size: 1.5em;
+			font-size: em(24px);
+			@include mq($from: mobile, $until: tablet) {
+				font-size: em(12px);
+			}
+			
 			color: black;
-			border-bottom: solid 4px $yellow;
+			
 			&:hover {
 				text-decoration: none;
-				border-bottom: none;
+				.underline {
+					border-bottom: none;
+				}
+			}
+
+			&.active {
+
+				.underline {
+			    filter: opacity(0);
+				}
+				.duplicate {
+			    filter: opacity(1);
+				}
+			}
+
+			.underline {
+				border-bottom: solid 4px $yellow;
+		    filter: opacity(1);
+				@include transition(all, 150ms, cubic-bezier(1.000, 0.000, 0.000, 1.000));
+			}
+			.duplicate {
+				border-bottom: solid 4px $yellow;
+				position: absolute;
+		    filter: opacity(0);
+				height: 32%;
+				@include transition(all, 150ms, cubic-bezier(1.000, 0.000, 0.000, 1.000));
 			}
 		}
 	}

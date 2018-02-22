@@ -1,14 +1,42 @@
 <div class="row" id="guides">
   <div class="col-md-12">
+
+	<picture>
+
+	  <!-- wide crop -->
+	  <source 
+	    media="(min-width: 600px)"
+	    srcset="https://res.cloudinary.com/engagement-lab-home/image/upload/c_fill,w_600/v1519314036/civic-idea/civic-idea-guides_3x.png 600w,
+	            https://res.cloudinary.com/engagement-lab-home/image/upload/c_fill,w_1200/v1519314036/civic-idea/civic-idea-guides_3x.png 1200w,
+	            https://res.cloudinary.com/engagement-lab-home/image/upload/c_fill,w_1300/v1519314036/civic-idea/civic-idea-guides_3x.png 1300w"
+	    sizes="100vw" />
+
+	  <!-- standard crop -->
+	  <img
+	    srcset="https://res.cloudinary.com/engagement-lab-home/image/upload/c_fill,w_400/v1519314036/civic-idea/civic-idea-guides_3x.png 400w,
+	            https://res.cloudinary.com/engagement-lab-home/image/upload/c_fill,w_800/v1519314036/civic-idea/civic-idea-guides_3x.png 800w"
+	    src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_fill,w_400/v1519314036/civic-idea/civic-idea-guides_3x.png"
+	    sizes="100vw" />
+
+	</picture>
+
+
 		<h1 class="letter">Guides</h1>
   </div>
 </div>
 
-<div *ngFor="let module of modules" class="row">
+<div *ngFor="let module of modules" class="module">
 	<h3>{{module.name}}</h3>
-  <div *ngFor="let guide of module.guides" class="col-md-4 guide condense">
-    <p id="{{guide.name | cleanString}}_label">{{guide.name}}</p>
-    <!-- <app-button label="Download pdf &#10515;" href="{{module.linkUrl}}" ariaLabel="Download PDF for {{guide.name}}"></app-button> -->
+	<div class="row">
+	  <div *ngFor="let guide of module.guides" class="col-md-4 guide">
+
+	    <cl-image public-id="{{guide.thumbnail.public_id}}" width="398" quality="100" crop="scale" fetch-format="auto" secure="true" responsive></cl-image>
+	    
+	    <div class="bottom">
+		    <p id="{{guide.name | cleanString}}_label">{{guide.name}}</p>
+		    <a href="{{guide.guidePdf.url}}" class="btn download" role="button" attr.aria-label="Download PDF for {{guide.name}}"><img src="../assets/arrow.svg" /></a>
+		  </div>
+	  </div>
   </div>
 
 </div>

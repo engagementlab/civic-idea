@@ -3,30 +3,49 @@
 h2.letter {
 
 	position: absolute;
-	top: -50%;
-	font-size: em(288px);
+	top: -39%;
 	display: inline;
+	font-size: em(288px);
 
 	@include yellow-stroke(5);
+	@include mq($from: mobile, $until: tablet) {
+		font-size: em(288px, 2.25);
+	}
+	@include mq($from: tablet, $until: desktop) {
+		font-size: em(288px, 1.25);
+	}
 
 }
 
 #blurb {
 	
+	display: block;
 	min-height: 768px;
-	margin-bottom: 5%;
-	background: url("../../assets/home.png");
-	background-size: contain;
+	margin-bottom: 11%;
+	background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_1330/v1519317396/civic-idea/civic-idea-home-desktop_3x.png); 
 	background-repeat: no-repeat;
 	font-size: em(36px);
 	font-weight: 500;
 	line-height: 1.17;
 	letter-spacing: 1.5px;
 
+	@include mq($from: mobile, $until: tablet) {
+		font-size: em(18px);
+		min-height: 567px;
+		background-image: url(http://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_320/v1519317323/civic-idea/civic-idea-home_3x.png);
+	}
+	@include mq($from: tablet, $and: '(orientation: landscape)') {
+		background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_1024/v1519317396/civic-idea/civic-idea-home-desktop_3x.png);
+	}
+	@include mq($from: wide) {
+		background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_1330/v1519317396/civic-idea/civic-idea-home-desktop_3x.png);
+	}
+
+
 	#modules {
 		text-transform: uppercase;
 		font-family: 'Roboto Condensed', sans-serif;
-		font-size: .7em;
+		font-size: em(24px, 2.25);
 		font-weight: bold;
 		font-stretch: condensed;
 		line-height: 1.75;
@@ -34,15 +53,22 @@ h2.letter {
 
 		a {
 			color: black;
-			&:nth-child(n+2) {
-				padding-left: 4%;
+			border-bottom: solid 4px $yellow;
+			margin: 1%;
+			padding: 0;
+			&:hover {
+				text-decoration: none;
+				border-bottom: none;
 			}
+			/* &:nth-child(n+2) {
+				margin-left: 2%;
+			} */
 		}			
 	}
 
 }
 
-.row {
+.listing.row {
 	@include mq($from: mobile, $until: tablet) {
 	 	margin-bottom: 27%;
 	}

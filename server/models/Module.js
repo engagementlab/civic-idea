@@ -37,7 +37,7 @@ Module.add({
 	website: { type: Types.Url, label: 'Website URL', required: true, initial: true },
 
 	intro: { type: Types.Text, label: 'Intro Text', required: true, initial: true },
-	introImage: { type: Types.CloudinaryImage, label: 'Intro Image', folder: 'civic-idea', autoCleanup: true, note: 'Dimensions should be 597x447.' },
+	introImage: { type: Types.CloudinaryImage, label: 'Intro Image', folder: 'civic-idea', autoCleanup: true, note: 'Dimensions should be 1800x1395.' },
 
   guides: {
       type: Types.Relationship,

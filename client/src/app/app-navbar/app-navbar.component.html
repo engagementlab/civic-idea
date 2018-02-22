@@ -1,7 +1,7 @@
 <nav class="navbar fixed-top container" role="banner">
   <h1>
     <a routerLink="/" routerLinkActive="active">
-        Civic Idea
+        <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1519317836/civic-idea/logo.svg" id="logo" alt="Civic Idea Logo" />Civic Idea
     </a>
   </h1>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,10 +11,16 @@
   <div class="collapse" id="main-nav">
     <ul class="ml-auto">
       <li class="nav-item active">
-        <a routerLink="/about" routerLinkActive="active">About</a>
+        <a routerLink="/about" routerLinkActive="active">
+          <span class="duplicate">About</span>
+          <span class="underline">About</span>
+        </a>
       </li>
       <li class="nav-item">
-        <a routerLink="/guides" routerLinkActive="active">Guides</a>
+        <a routerLink="/guides" routerLinkActive="active">
+          <span class="duplicate">Guides</span>
+          <span class="underline">Guides</span>
+        </a>
       </li>
     </ul>
   </div>

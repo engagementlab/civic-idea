@@ -16,10 +16,9 @@ export class JsonService {
 
     constructor(private http: HttpClient) {}
 
-    modules: any[];
     index: any;
-    data = new Map<string, string>();
-    modules = new Map<string, string>();
+    data = new Map<string, any>();
+    modules = new Map<string, any>();
 
     assembleData(newData: any, type: string) {
 
@@ -54,7 +53,7 @@ export class JsonService {
 
         let have: boolean;
 
-        if(type.indexOf('module/') > -1 && this.modules.has(type.replace('module/',''))
+        if(type.indexOf('module/') > -1 && this.modules.has(type.replace('module/','')))
             return true;
         
         switch(type) {
