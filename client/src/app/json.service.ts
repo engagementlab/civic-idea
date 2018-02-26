@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Response } from '@angular/http';
 import { catchError } from 'rxjs/operators';
+import { environment } from '../environments/environment';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -12,9 +13,13 @@ import 'rxjs/add/observable/of';
 @Injectable()
 export class JsonService {
 
-	baseUrl = 'http://localhost:3000/api/';
+	baseUrl: string;
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) {
+
+        this.baseUrl = (environment.production ? 'https://'+window.location.host : 'http://localhost:3000') + '/api/';
+
+    }
 
     index: any;
     data = new Map<string, any>();
@@ -80,6 +85,7 @@ export class JsonService {
             return Observable.of(this.data).map((d:any) => d);
         }
         else  {
+            console.log(this.baseUrl)
             return this.http.get(this.baseUrl+'get/'+type)
             .map((res:any)=> {
               // this.data = res.data;

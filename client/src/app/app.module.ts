@@ -34,7 +34,9 @@ import { ModuleIntroComponent } from './tool-intro/tool-intro.component';
 import { CleanStringPipe } from './clean-string.pipe';
 import { ButtonComponent } from './button/button.component';
 import { CdnImageComponent } from './cdn-image/cdn-image.component';
+import {enableProdMode} from '@angular/core';
 
+enableProdMode();
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'about', component: AboutComponent },
