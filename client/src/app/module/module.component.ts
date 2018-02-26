@@ -8,7 +8,7 @@ import { fadeInAnimation } from '../_animations/fade';
   templateUrl: './module.component.html',
   styleUrls: ['./module.component.scss'],
   animations: [fadeInAnimation],
-  host: { '[@fadeInAnimation]': '' }
+  host: { '[@fadeInAnimation]': '' },
   encapsulation: ViewEncapsulation.None
 })
 export class ModuleComponent implements OnInit {

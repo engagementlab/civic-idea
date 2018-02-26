@@ -5,7 +5,7 @@
 	margin-right: auto;
 	text-align: center;
 
-	@include mq($from: mobile, $until: tablet) {
+	@include mobile-only {
 	 width: 100%;
 	 .letter {
 		font-size: em(50px);

@@ -12,8 +12,19 @@ nav {
 	h1 {
 	  float: left;
 		@include semi-bold;
-		@include mq($from: mobile, $until: tablet) {
+		@include mobile-only {
 			font-size: em(14px);
+		}
+		a {
+			text-decoration: none;
+			&:hover {
+				#home {
+					// border-bottom: solid 4px $yellow;
+					.bottom {						
+				  	transform: scaleX(1);
+					}
+				}
+			}
 		}
 	}
 	
@@ -26,6 +37,27 @@ nav {
 		margin-right: 5px;
 	}
 
+	#home {
+		// width: 300px;
+		position: relative;
+		display: inline-block;
+		cursor: pointer;
+		span {
+	    position: absolute;
+	    display: block;
+		  background: $yellow;
+		  transition: all .2s linear;
+		  &.bottom {
+			    width: 100%;
+			    height: 5px;
+			    transform: scaleX(0);
+			    bottom: 0;
+			    right: 0;
+			    transform-origin: top left;
+			}
+		}
+	}
+
 	#main-nav ul {
 		float: right;
 		list-style: none;
@@ -36,7 +68,7 @@ nav {
 		}
 		a {
 			font-size: em(24px);
-			@include mq($from: mobile, $until: tablet) {
+			@include mobile-only {
 				font-size: em(12px);
 			}
 			
@@ -56,7 +88,11 @@ nav {
 				}
 				.duplicate {
 			    filter: opacity(1);
+					@include mobile-only {
+				    padding-top: 9%;
+					}
 				}
+
 			}
 
 			.underline {

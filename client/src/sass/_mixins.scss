@@ -117,3 +117,9 @@ $base-font-size: 16px;
       color: $pinkish-grey;      
     }
 }
+
+@mixin mobile-only {
+    @include mq($from: mobile, $until: tablet) {
+      @content;
+    }
+}

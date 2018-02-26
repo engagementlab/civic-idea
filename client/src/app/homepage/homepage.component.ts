@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { JsonService } from '../json.service';
 import { fadeInAnimation } from '../_animations/fade';
+import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
 
 @Component({
   selector: 'app-homepage',
@@ -26,9 +27,19 @@ export class HomepageComponent implements OnInit {
         });
   }
 
+  public triggerScrollTo(id: string) {
+    
+    this._scrollToService
+      .scrollTo({
+        target: id,
+        easing: 'easeOutElastic',
+        duration: 2000
+      });
+  }
+
   isLoading: boolean
 
-  constructor(private jsonSvc: JsonService) { }
+  constructor(private jsonSvc: JsonService, private _scrollToService: ScrollToService) { }
 
   ngOnInit() {
     this.getData();

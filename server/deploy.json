@@ -1,6 +1,6 @@
 {
   "apps" : [{
-    "name": "Product Name",
+    "name": "Civic Idea",
     "script": "server.js",
     "env_production": {
       "NODE_ENV": "production"
@@ -11,27 +11,14 @@
   }],
   "deploy" : {
 
-    "framework-staging" : {
-      "user": "node",
-      "host": "xxx.xxx.xxx.xx",
-      "repo": "git@github.com:engagementgamelab/repo-name.git",
-      "ref": "origin/master",
-      "path": "/srv/framework",
-      "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.';",
-      "post-deploy" : "npm i ; grunt compile --sites=repo-name --env staging ; pm2 restart 0 -- repo-name --env staging",
-      "env": {
-        "NODE_ENV": "staging"
-      }
-    },
-
     "staging" : {
       "user": "node",
-      "host": "xxx.xxx.xxx.xx",
-      "repo": "git@github.com:engagementgamelab/repo-name.git",
+      "host": "199.94.80.19",
+      "repo": "git@github.com:engagementgamelab/civic-idea.git",
       "ref": "origin/master",
-      "path": "/srv/repo-name",
-      "pre-deploy-local" : "echo 'NPM linking repo-name and restarting app.'; git pull git@github.com:engagementgamelab/repo-name.git master;",
-      "post-deploy" : "npm i ; cd /srv/framework/current/ ; npm i ; grunt compile --sites=repo-name --env staging ; pm2 restart 0 -- repo-name --env staging"
+      "path": "/srv/civic-idea/",
+      "pre-deploy-local" : "echo 'NPM linking civic-idea/server and restarting app.'; git pull git@github.com:engagementgamelab/civic-idea.git master;",
+      "post-deploy" : "cd server ; npm i ; cd /srv/framework/current/ ; npm i ; grunt compile --sites=repo-name --env staging ; pm2 restart 0 -- civic-idea --env staging"
     },
 
     "framework-production" : {

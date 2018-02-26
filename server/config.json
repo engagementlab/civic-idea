@@ -2,6 +2,7 @@
 	"name": "Civic Idea",
 	"database": "civic-idea",
 	"subdomain": "ci",
+	"allowed_domains": ["qa.civicidea.org", "www.civicidea.org"],
 	"admin_nav": { 
 									"index": ["Index"],
 									"modules": ["Module", "Guide"]

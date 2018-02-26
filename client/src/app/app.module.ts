@@ -10,6 +10,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Cloudinary as CloudinaryCore } from 'cloudinary-core';
 import { CloudinaryConfiguration, CloudinaryModule } from '@cloudinary/angular-5.x';
 
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+
 import cloudinaryConfiguration from './config';
 export const cloudinary = {
   Cloudinary: CloudinaryCore
@@ -31,6 +33,7 @@ import { AboutComponent } from './about/about.component';
 import { ModuleIntroComponent } from './tool-intro/tool-intro.component';
 import { CleanStringPipe } from './clean-string.pipe';
 import { ButtonComponent } from './button/button.component';
+import { CdnImageComponent } from './cdn-image/cdn-image.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
@@ -50,18 +53,20 @@ const appRoutes: Routes = [
     ModuleComponent,
     ButtonComponent,
     AboutComponent,
-    GuidesComponent
+    GuidesComponent,
+    CdnImageComponent
   ],
   imports: [
     RouterModule.forRoot(
       appRoutes
     ),
-    BrowserAnimationsModule,
     CloudinaryModule.forRoot(cloudinary, config),
+    ScrollToModule.forRoot(),
+    NgbModule.forRoot(),
+    BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    NgbModule.forRoot(),
     AppRoutingModule
   ],
   exports: [

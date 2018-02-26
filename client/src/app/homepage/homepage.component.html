@@ -2,23 +2,24 @@
   <!-- <img src="assets\img\myimage.png"> -->
   <div class="col-md-12" [innerHtml]="index?.intro.html"></div>
   <div id="modules" class="row col-sm-12">
-    <div class="col-sm-6 col-xl-3"><a href="#databasic.io">Databasic.io</a></div>
-    <div class="col-sm-6 col-xl-3"><a href="#@stake">@Stake</a></div>
-    <div class="col-sm-6 col-xl-3"><a href="#mediabreaker">Media Breaker</a></div>
-    <div class="col-sm-6 col-xl-3"><a href="#emergingcitizens">Emerging Citizens</a></div>
+    <div class="col-sm-6 col-xl-3"><a href="#" (click)="triggerScrollTo('databasic.io')">Databasic.io</a></div>
+    <div class="col-sm-6 col-xl-3"><a href="#" (click)="triggerScrollTo('@stake')">@Stake</a></div>
+    <div class="col-sm-6 col-xl-3"><a href="#" (click)="triggerScrollTo('mediabreaker')">Media Breaker</a></div>
+    <div class="col-sm-6 col-xl-3"><a href="#" (click)="triggerScrollTo('emergingcitizens')">Emerging Citizens</a></div>
   </div>
 </div>
 
-<div *ngFor="let module of modules; let odd = odd; let i = index" class="row listing" [class.reverse]="odd">
+<div *ngFor="let module of modules; let odd = odd; let i = index" class="row listing" [class.reverse]="odd" id="{{module.name | cleanString}}">
   <div class="col-md-5 offset-md-1">
     <h2 class="letter" *ngIf="i==0">I</h2>
     <h2 class="letter" *ngIf="i==1">D</h2>
     <h2 class="letter" *ngIf="i==2">E</h2>
     <h2 class="letter" *ngIf="i==3">A</h2>
-    <cl-image public-id="{{module.introImage.public_id}}" width="540" quality="100" crop="scale" fetch-format="auto" secure="true" responsive></cl-image>
+
+    <cdn-image cloudinaryId="{{module.introImage.public_id}}" width="540" quality="100"></cdn-image>
   </div>
   <div class="col-md-5 condense">
-    <a name="{{module.name | cleanString}}"><h2 id="{{module.name | cleanString}}_label">{{module.name}}</h2></a>
+    <h2 id="{{module.name | cleanString}}_label">{{module.name}}</h2>
     <p>{{module.intro}}</p>
     <app-button label="View more &rarr;" route="/module/{{module.url}}" ariaLabel="Read more about {{module.name}}"></app-button>
   </div>

@@ -32,14 +32,20 @@ h1, h2 {
 }
 
 h3 {
+  font-weight: 600;
   &:after {
+    position: relative;
+    display: flex;
     content: ''; 
     width: 60px; 
     height: 4px; 
     background: $light-gold; 
     bottom: -10px;
-    display: flex;
-    position: relative;
+    margin-bottom: 5%;
+    
+    @include mq($from: mobile, $until: tablet) {
+      margin-bottom: 10%;
+    }
   }
 }
 

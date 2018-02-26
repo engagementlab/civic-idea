@@ -1,26 +1,35 @@
 @import "~sass/_variables";
 #guides {
 
-	@include mq($from: mobile) {
-		// background: url(http://via.placeholder.com/1333x297);
-		min-height: 297px;
-	}
-	@include mq($from: tablet, $and: '(orientation: landscape)') {
-		// background: url(http://via.placeholder.com/1333x297);
-		min-height: 297px;
-	}
-	@include mq($from: wide) {
-		// background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,w_1339/v1519239488/civic-idea/civic-idea-about_2x.png);
-		min-height: 500px;
-	}
-
 	h1 {
 	  font-size: em(144px);
 		position: absolute;
-		bottom: -22%;
+		bottom: -37%;
+		
+		@include mobile-only {
+			font-size: em(144px, 2.25);
+			bottom: -20%;
+		}
+		@include mq($from: tablet, $until: desktop) {
+			font-size: em(144px, 1.25);
+		}
 	}
 
-	margin-bottom: 7%;
+	@include mq($until: tablet) {
+		background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/c_thumb,f_auto,g_north,h_350,q_100,w_350/v1519314036/civic-idea/civic-idea-guides_3x.png);
+		min-height: 297px;
+		margin-bottom: 20%;
+	}
+	@include mq($from: tablet, $and: '(orientation: landscape)') {
+		background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_1024/v1519314036/civic-idea/civic-idea-guides_3x.png);
+		min-height: 297px;
+	}
+	@include mq($from: wide) {
+		background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_1300/v1519314036/civic-idea/civic-idea-guides_3x.png);
+		min-height: 500px;
+	}
+	background-repeat: none;
+	margin-bottom: 11%;
 }
 
 .module {
