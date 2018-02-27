@@ -5,11 +5,11 @@
 
 <div class="row">
   <div class="col-md-6">
-    <cdn-image cloudinaryId="{{module?.introImage.public_id}}" alt="{{module?.name}} imagery" width="597" quality="100"></cdn-image>
+    <cdn-image *ngIf="module?.introImage !== undefined" cloudinaryId="{{module?.introImage.public_id}}" alt="{{module?.name}} imagery" width="597" quality="100"></cdn-image>
   </div>
   <div class="col-md-6 condense">
   	<p>{{module?.intro}}</p>
-    <app-button label="Visit &rarr;" href="{{module?.url}}" ariaLabel="Read more about {{module?.name}}"></app-button>
+    <app-button label="Visit &rarr;" href="{{module?.website}}" ariaLabel="Read more about {{module?.name}}"></app-button>
   </div>
 </div>
 

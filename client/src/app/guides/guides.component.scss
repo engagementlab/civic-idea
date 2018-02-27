@@ -52,19 +52,14 @@
 		  float: right;
 		  width: 50px;
 		  height: 50px;
+		  padding: 2%;
 		  text-align: center;
-		  &:hover {
-		  	img {
-		  		-webkit-transform: scale(1.8);
-	        transform: scale(1.8);
-		  	}
-		  }
+			@include transition(all, 150ms, cubic-bezier(0.64, 0.57, 0.67, 1.53));
 
-			img {
-				width: 20px;
-				padding-top: 25%;
-				@include transition(all, 150ms, cubic-bezier(1.000, 0.000, 0.000, 1.000));
-			}
+		  &:hover {
+		  	-webkit-transform: scale(1.2);
+        transform: scale(1.2);
+		  }
 		}
 
 		&:not(:nth-child(3n)) {
@@ -72,6 +67,7 @@
 			@include mq($from: tablet, $and: '(orientation: landscape)') {
 				border-right: solid 1px black;
 			}
+
 		}
 
 		.bottom {

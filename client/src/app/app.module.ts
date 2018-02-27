@@ -11,6 +11,7 @@ import { Cloudinary as CloudinaryCore } from 'cloudinary-core';
 import { CloudinaryConfiguration, CloudinaryModule } from '@cloudinary/angular-5.x';
 
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+import { LoadingModule } from 'ngx-loading';
 
 import cloudinaryConfiguration from './config';
 export const cloudinary = {
@@ -34,9 +35,7 @@ import { ModuleIntroComponent } from './tool-intro/tool-intro.component';
 import { CleanStringPipe } from './clean-string.pipe';
 import { ButtonComponent } from './button/button.component';
 import { CdnImageComponent } from './cdn-image/cdn-image.component';
-import {enableProdMode} from '@angular/core';
 
-enableProdMode();
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'about', component: AboutComponent },
@@ -66,6 +65,7 @@ const appRoutes: Routes = [
     ScrollToModule.forRoot(),
     NgbModule.forRoot(),
     BrowserAnimationsModule,
+    LoadingModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,

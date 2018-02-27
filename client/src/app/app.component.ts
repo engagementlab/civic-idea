@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { Router, NavigationEnd } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'Civic Idea';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private _scrollToService: ScrollToService) { }
     
   ngOnInit() {
   	 this.router.events.subscribe((evt) => {
@@ -19,7 +20,13 @@ export class AppComponent implements OnInit {
         if(evt.url.indexOf('/#') === 0)
           return;
 
-        window.scrollTo(0, 0)
+        this._scrollToService
+          .scrollTo({
+            offset: 0,
+            container: 'body',
+            easing: 'easeInOutQuart',
+            duration: 1000
+          });
       });
   }
 }

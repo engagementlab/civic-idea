@@ -85,10 +85,8 @@ export class JsonService {
             return Observable.of(this.data).map((d:any) => d);
         }
         else  {
-            console.log(this.baseUrl)
             return this.http.get(this.baseUrl+'get/'+type)
             .map((res:any)=> {
-              // this.data = res.data;
               return this.assembleData(res.data, type);
             })
             .catch((error:any) => { 

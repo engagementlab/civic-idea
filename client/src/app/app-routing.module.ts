@@ -4,4 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 @NgModule({
   exports: [ RouterModule ]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+  public loading = true;
+}
