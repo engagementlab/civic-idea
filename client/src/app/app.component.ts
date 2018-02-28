@@ -8,6 +8,7 @@ import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  public loading: boolean;
   title = 'Civic Idea';
 
   constructor(private router: Router, private _scrollToService: ScrollToService) { }

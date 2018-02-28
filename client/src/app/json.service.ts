@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Response } from '@angular/http';
+import { AppComponent } from './app.component';
 import { catchError } from 'rxjs/operators';
 import { environment } from '../environments/environment';
 
@@ -78,6 +79,8 @@ export class JsonService {
     }
 	
     getAllData(type: string): Observable<any> {
+
+        // AppComponent.loading = true;
 
         if(type.indexOf('module/') > -1 && this.haveData(type))
             return Observable.of(this.modules).map((d:any) => d);

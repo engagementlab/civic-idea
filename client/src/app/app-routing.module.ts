@@ -5,5 +5,4 @@ import { RouterModule, Routes } from '@angular/router';
   exports: [ RouterModule ]
 })
 export class AppRoutingModule {
-  public loading = true;
 }
