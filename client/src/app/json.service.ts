@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Response } from '@angular/http';
-import { AppComponent } from './app.component';
 import { catchError } from 'rxjs/operators';
 import { environment } from '../environments/environment';
 
@@ -14,7 +14,8 @@ import 'rxjs/add/observable/of';
 @Injectable()
 export class JsonService {
 
-	baseUrl: string;
+    baseUrl: string;
+    public isLoading: Subject<boolean> = new Subject<boolean>();
 
     constructor(private http: HttpClient) {
 
@@ -30,6 +31,8 @@ export class JsonService {
 
         if(type.indexOf('module/') > -1) {
             this.modules.set(newData.url, newData);
+            this.isLoading.next(false);
+
             return this.modules;
         }
 
@@ -51,6 +54,8 @@ export class JsonService {
                 this.data.set("about", newData[0]);
                 break;
         }
+
+        this.isLoading.next(false);
 
         return this.data;
     }
@@ -80,7 +85,6 @@ export class JsonService {
 	
     getAllData(type: string): Observable<any> {
 
-        // AppComponent.loading = true;
 
         if(type.indexOf('module/') > -1 && this.haveData(type))
             return Observable.of(this.modules).map((d:any) => d);
@@ -88,11 +92,13 @@ export class JsonService {
             return Observable.of(this.data).map((d:any) => d);
         }
         else  {
+            this.isLoading.next(true);
             return this.http.get(this.baseUrl+'get/'+type)
             .map((res:any)=> {
               return this.assembleData(res.data, type);
             })
             .catch((error:any) => { 
+                this.isLoading.next(false);
                 return Observable.throw(error);
             })
 

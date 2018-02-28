@@ -16,7 +16,6 @@ export class HomepageComponent implements OnInit {
   modules: any[];
   
   getData(): void {
-    this.isLoading = true;
     this.jsonSvc.getAllData('index')
         .subscribe(response => {
           
@@ -36,8 +35,6 @@ export class HomepageComponent implements OnInit {
         duration: 2000
       });
   }
-
-  isLoading: boolean
 
   constructor(private jsonSvc: JsonService, private _scrollToService: ScrollToService) { }
 

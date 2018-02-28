@@ -19,7 +19,6 @@ export const cloudinary = {
 };
 export const config: CloudinaryConfiguration = cloudinaryConfiguration;
 
-
 import { AppComponent } from './app.component';
 import { JsonService } from './json.service';
 import { AppRoutingModule } from './/app-routing.module';
@@ -35,6 +34,7 @@ import { ModuleIntroComponent } from './tool-intro/tool-intro.component';
 import { CleanStringPipe } from './clean-string.pipe';
 import { ButtonComponent } from './button/button.component';
 import { CdnImageComponent } from './cdn-image/cdn-image.component';
+import { LoaderComponent } from './loader/loader.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
@@ -55,7 +55,8 @@ const appRoutes: Routes = [
     ButtonComponent,
     AboutComponent,
     GuidesComponent,
-    CdnImageComponent
+    CdnImageComponent,
+    LoaderComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -72,10 +73,12 @@ const appRoutes: Routes = [
     AppRoutingModule
   ],
   exports: [
-    RouterModule
+    RouterModule,
+    LoaderComponent
   ],
   providers: [
-    JsonService
+    JsonService,
+    LoaderComponent
   ],
   bootstrap: [AppComponent]
 })
