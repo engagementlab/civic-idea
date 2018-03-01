@@ -1,5 +1,9 @@
 @import "~sass/_variables";
 
+::ng-deep img {
+	width: 100%;
+}
+
 h2.letter {
 
 	position: absolute;
@@ -22,7 +26,7 @@ h2.letter {
 	display: block;
 	min-height: 768px;
 	margin-bottom: 11%;
-	background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_1330/v1519317396/civic-idea/civic-idea-home-desktop_3x.png); 
+
 	background-repeat: no-repeat;
 	font-size: em(36px);
 	font-weight: 500;
@@ -32,15 +36,17 @@ h2.letter {
 	@include mq($from: mobile, $until: tablet) {
 		font-size: em(18px);
 		min-height: 567px;
-		background-image: url(http://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_320/v1519317323/civic-idea/civic-idea-home_3x.png);
+		background-image: cdn-image('home-mobile.png', 'b_rgb:ffffff', c_scale, q_100, w_320); 
 	}
 	@include mq($from: tablet, $and: '(orientation: landscape)') {
-		background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_1024/v1519317396/civic-idea/civic-idea-home-desktop_3x.png);
+		background-image: cdn-image('home.png', 'b_rgb:ffffff', c_scale, q_100, w_1024); 
+		background-position-y: 80%;
 	}
-	@include mq($from: wide) {
-		background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_1330/v1519317396/civic-idea/civic-idea-home-desktop_3x.png);
+	@include mq($from: wide) {		
+		background-image: cdn-image('home.png', 'b_rgb:ffffff', c_scale, q_100, w_1330); 
+		background-position-y: 84%;
+		min-height: 900px;
 	}
-
 
 	#modules {
 		text-transform: uppercase;

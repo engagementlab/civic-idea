@@ -15,8 +15,9 @@
     <h2 class="letter" *ngIf="i==1">D</h2>
     <h2 class="letter" *ngIf="i==2">E</h2>
     <h2 class="letter" *ngIf="i==3">A</h2>
-
+  <div class="img-responsive">
     <cdn-image cloudinaryId="{{module.introImage.public_id}}" width="540" quality="100"></cdn-image>
+  </div>
   </div>
   <div class="col-md-5 condense">
     <h2 id="{{module.name | cleanString}}_label">{{module.name}}</h2>
