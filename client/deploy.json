@@ -17,5 +17,13 @@
         "path": "/srv/civic-idea/",
         "post-deploy": "cd client ; nvm use ; npm i ; npm run build ; pm2 restart 'civic-idea-client'"
       },
+     "production" : {
+        "user" : "node",
+        "host" : "199.94.80.32",
+        "repo": "git@github.com:engagementgamelab/civic-idea.git",
+        "ref": "origin/production",
+        "path": "/srv/civic-idea/",
+        "post-deploy": "cd client ; nvm use ; npm i ; npm run build ; pm2 restart 'civic-idea-client'"
+      }
    }
 }
