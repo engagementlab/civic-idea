@@ -1,5 +1,17 @@
 @import "~sass/_variables";
 
+@include keyframes(scroll-text-anim) {
+  0% {
+    transform:  translate(0px,0px);
+  }
+  50% {
+    transform:  translate(0px, 50px);
+  }
+  100% {
+    transform:  translate(0px,0px);
+  }
+}
+
 ::ng-deep img {
 	width: 100%;
 }
@@ -37,6 +49,7 @@ h2.letter {
 		font-size: em(18px);
 		min-height: 567px;
 		background-image: cdn-image('home-mobile.png', 'b_rgb:ffffff', c_scale, q_100, w_320); 
+		background-size: contain;
 	}
 	@include mq($from: tablet, $and: '(orientation: landscape)') {
 		background-image: cdn-image('home.png', 'b_rgb:ffffff', c_scale, q_100, w_1024); 
@@ -70,6 +83,36 @@ h2.letter {
 				margin-left: 2%;
 			} */
 		}			
+	}
+
+	#scroll {
+	  @include font-roboto();
+	  @include filter(opacity, 100%);
+		@include transition(filter, 700ms, linear);
+		@include animation('scroll-text-anim 5s infinite');
+		
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		text-align: center;
+		text-transform: uppercase;
+	  font-size: 10px;
+	  font-weight: bold;
+
+	  &.hidden {
+		  @include filter(opacity, 0%);
+	  }
+
+	  // Line below
+	  &::after {
+			display: table;
+		  left: 0;
+		  right: 0;
+		  margin: 0 auto;
+	  	content: " ";
+	  	border-left: solid 5px #000;
+	  	height: 50px;
+	  }
 	}
 
 }

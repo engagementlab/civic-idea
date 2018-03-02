@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, Inject, 
+         ViewChild,
+         AfterViewInit,
+         ElementRef } from '@angular/core';
+import { DOCUMENT } from "@angular/platform-browser";
 import { JsonService } from '../json.service';
 import { fadeInAnimation } from '../_animations/fade';
 import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
@@ -12,8 +16,17 @@ import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
 })
 export class HomepageComponent implements OnInit {
 
+  @ViewChild('scroll') someInput: ElementRef;
+
   index: any;
   modules: any[];
+  
+  @HostListener('window:scroll', ['$event']) onWindowScroll(evt){
+    if((evt.pageY / this._document.body.offsetHeight) > .15)
+      this.someInput.nativeElement.className = 'hidden';
+    else      
+      this.someInput.nativeElement.className = '';
+  };
   
   getData(): void {
     this.jsonSvc.getAllData('index')
@@ -36,7 +49,7 @@ export class HomepageComponent implements OnInit {
       });
   }
 
-  constructor(private jsonSvc: JsonService, private _scrollToService: ScrollToService) { }
+  constructor(private jsonSvc: JsonService, private _scrollToService: ScrollToService, @Inject(DOCUMENT) private _document: any) { }
 
   ngOnInit() {
     this.getData();

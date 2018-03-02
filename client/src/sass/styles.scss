@@ -61,7 +61,8 @@ h3 {
 }
 
 .condense p {
-  font-family: 'Roboto Condensed', sans-serif;
+  @include font-roboto();
+
   font-weight: 300;
   font-stretch: condensed;
   line-height: 1.5;

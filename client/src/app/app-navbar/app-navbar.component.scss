@@ -1,4 +1,15 @@
 @import "~sass/_variables";
+@include keyframes(scroll-text-anim) {
+  0% {
+    transform:  translate(0px,0px);
+  }
+  50% {
+    transform:  translate(0px, 50px);
+  }
+  100% {
+    transform:  translate(0px,0px);
+  }
+}
 
 nav {
 
@@ -8,13 +19,25 @@ nav {
 	
 	a {
 		color: black;
-		svg {
-			display: block;
-			@include transition(filter, 1000ms, linear);
-			filter: drop-shadow(20px 10px #fff);
 
 			&:hover {
-				filter: drop-shadow(10px 10px #eaeaea);
+				#civic {
+			    transform: translate(0, 40%);
+			  }
+			  #idea {
+			  	transform: scale(1.05, 1.05);
+					@include filter(brightness, 0%);
+			  }
+			}
+		svg {
+			display: block;
+			@include transition(all, 400ms, cubic-bezier(0.645, 0.045, 0.355, 1.000));
+
+			&#civic {
+				margin-left: 17%;
+			}
+			&#idea {
+				margin-top: 10%;
 			}
 		}
 	}
