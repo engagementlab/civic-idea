@@ -15,7 +15,6 @@ export class CdnImageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('cloudinaryId', this.cloudinaryId.length)
   }
 
 }

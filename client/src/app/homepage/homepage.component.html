@@ -12,7 +12,7 @@
   </div>
 </div>
 
-<div *ngFor="let module of modules; let odd = odd; let i = index" class="row listing" [class.reverse]="odd" id="{{module.name | cleanString}}">
+<div *ngFor="let module of modules; let odd = odd; let i = index" class="row listing" [class.reverse]="odd" id="{{module.name | cleanString}}" [ngsReveal]="{ duration: 700, distance: '200px', origin: odd ? 'left' : 'right' }">
   <div class="col-md-5 offset-md-1">
     <h2 class="letter" *ngIf="i==0">I</h2>
     <h2 class="letter" *ngIf="i==1">D</h2>

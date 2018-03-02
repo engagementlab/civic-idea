@@ -28,10 +28,12 @@
     "cloudinary-core": "^2.5.0",
     "core-js": "^2.4.1",
     "jquery": "^3.3.1",
+    "ng-scrollreveal": "^2.2.0",
     "ngx-loading": "^1.0.14",
     "popper.js": "^1.12.5",
     "rxjs": "^5.5.6",
     "sass-mq": "^4.0.2",
+    "scrollreveal": "^3.3.6",
     "smoothscroll": "^0.4.0",
     "zone.js": "^0.8.19"
   },
