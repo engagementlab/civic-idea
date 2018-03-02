@@ -136,7 +136,7 @@ nav {
 				border-bottom: solid 4px $yellow;
 				position: absolute;
 		    filter: opacity(0);
-				height: 32%;
+				height: 23%;
 				@include transition(all, 150ms, cubic-bezier(1.000, 0.000, 0.000, 1.000));
 			}
 		}
