@@ -1,8 +1,10 @@
 var assert = require('assert'),
     fs = require('fs');
 
-var webdriver = require('selenium-webdriver')
-test = require('selenium-webdriver/testing');
+var webdriver = require('selenium-webdriver'),
+    test = require('selenium-webdriver/testing');
+const By = webdriver.By, 
+      Until = webdriver.until;
 
 var assert = require('assert'),
     webdriver = require('selenium-webdriver'),
