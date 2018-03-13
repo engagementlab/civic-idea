@@ -18,4 +18,5 @@ before_script:
 
 script:
    - cd client
+   - npm install
    - ng build --prod
