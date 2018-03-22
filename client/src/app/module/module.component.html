@@ -18,7 +18,10 @@
 
   <div *ngFor="let guide of module?.guides;" class="col-md-4 guide condense">
     <h4 id="{{guide.name | cleanString}}_label">{{guide.name}}</h4>
-    <p [innerHtml]="guide.intro.html"></p>
+    <cl-image *ngIf="guide.thumbnail !== undefined" public-id="{{guide.thumbnail.public_id}}" width="400" quality="100" crop="scale" fetch-format="auto" secure="true" responsive></cl-image>
+  
+    <p class="col-xs-6" [innerHtml]="guide.intro.html"></p>
+
     <app-button label="Download pdf &#10515;" href="{{module.linkUrl}}" ariaLabel="Download PDF for {{guide.name}}"></app-button>
   </div>
 

@@ -37,6 +37,22 @@
 	  text-indent: -1em;
 	}
 
+	@include mobile-only {
+		img {
+			max-width: 100px;
+		}
+		p {
+			width: 56%;
+			float: right;
+		}
+		a.btn {
+			font-size: em(18px)!important;
+			margin-left: 17%;
+		}
+		font-size: em(12px);
+
+	}
+
 	li:before {
 	  content: "\2014";
 	  padding-right: 5px;
@@ -44,6 +60,10 @@
 	}
 
 	&:not(:nth-child(3n)) {
+		@include mobile-only {
+			border-bottom: solid 2px black;
+			border-right: none;
+		}
 		border-right: solid 2px black;
 	}
 
