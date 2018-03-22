@@ -16,16 +16,18 @@ import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
 })
 export class HomepageComponent implements OnInit {
 
-  @ViewChild('scroll') someInput: ElementRef;
+  @ViewChild('scroll') scrollArrow: ElementRef;
 
   index: any;
   modules: any[];
   
   @HostListener('window:scroll', ['$event']) onWindowScroll(evt){
-    if((evt.pageY / this._document.body.offsetHeight) > .15)
-      this.someInput.nativeElement.className = 'hidden';
+    let pageY: Number = evt.pageY || this._document.body.scrollTop;
+
+    if((pageY / this._document.body.offsetHeight) > .15)
+      this.scrollArrow.nativeElement.className = 'hidden';
     else      
-      this.someInput.nativeElement.className = '';
+      this.scrollArrow.nativeElement.className = '';
   };
   
   getData(): void {
