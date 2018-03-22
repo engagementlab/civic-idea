@@ -22,7 +22,7 @@ export class HomepageComponent implements OnInit {
   modules: any[];
   
   @HostListener('window:scroll', ['$event']) onWindowScroll(evt){
-    let pageY: Number = evt.pageY || this._document.body.scrollTop;
+    let pageY: number = evt.pageY || this._document.body.scrollTop;
 
     if((pageY / this._document.body.offsetHeight) > .15)
       this.scrollArrow.nativeElement.className = 'hidden';
