@@ -44,6 +44,7 @@
 		p {
 		  font-size: em(24px);
 		  font-weight: 500;
+		  width: 70%;
 		  float: left;
 		}
 
@@ -52,7 +53,6 @@
 		  background-color: $dusty-orange;
 		  float: right;
 		  width: 50px;
-		  height: 50px;
 		  padding: 2%;
 		  text-align: center;
 			@include transition(all, 150ms, cubic-bezier(0.64, 0.57, 0.67, 1.53));
