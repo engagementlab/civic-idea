@@ -11,7 +11,7 @@ export class ButtonComponent implements OnInit {
 	@Input() route: string;
 	@Input() href: string;
 	@Input() ariaLabel: string;
-	// @Input() type: string;
+	@Input() newWindow: boolean;
   constructor() { }
 
   ngOnInit() {

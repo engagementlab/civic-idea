@@ -3,12 +3,13 @@
 
 	h1 {
 	  font-size: em(144px);
+	  font-weight: 700;
 		position: absolute;
-		bottom: -37%;
+		bottom: -29%;
 		
 		@include mobile-only {
 			font-size: em(144px, 2.25);
-			bottom: -20%;
+			bottom: -24%;
 		}
 		@include mq($from: tablet, $until: desktop) {
 			font-size: em(144px, 1.25);

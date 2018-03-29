@@ -2,10 +2,9 @@
   "apps" : [
     {
       "name": "civic-idea-client",      
-      "exec_interpreter": "~/.nvm/versions/node/v6.9.1/bin/node",
-      "cwd": "~/.nvm/versions/node/v6.9.1/bin/",
-      "args": "dist -p 8080",
-      "script": "http-server",
+      "exec_interpreter": "/home/node/.nvm/versions/node/v6.9.1/bin/node",
+      "args": "/srv/civic-idea/source/client/dist -p 8080",
+      "script": "/home/node/.nvm/versions/node/v6.9.1/bin/http-server",
     }
   ],
    "deploy" : {

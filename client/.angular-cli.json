@@ -28,7 +28,8 @@
       },
       "scripts": [
         "../bower_components/angular/angular.min.js",
-        "../bower_components/angular-cloudinary/angular-cloudinary.js"
+        "../bower_components/angular-cloudinary/angular-cloudinary.js",
+        "../node_modules/scrollreveal/dist/scrollreveal.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

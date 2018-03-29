@@ -36,8 +36,9 @@ Module.add({
 	url: { type: String, label: 'Module Internal URL', required: true, initial: true, note: 'What\'s the module\'s URL for this site (nameofmodule)?' },
 	website: { type: Types.Url, label: 'Website URL', required: true, initial: true },
 
-	intro: { type: Types.Text, label: 'Intro Text', required: true, initial: true },
-	introImage: { type: Types.CloudinaryImage, label: 'Intro Image', folder: 'civic-idea', autoCleanup: true, note: 'Dimensions should be 1800x1395.' },
+	indexText: { type: Types.Text, label: 'Index Page Text', required: true, initial: true },
+	intro: { type: Types.Text, label: 'Module Intro Text', required: true, initial: true, note: 'Text blurb for site homepage.' },
+	introImage: { type: Types.CloudinaryImage, label: 'Intro Image (dimensions should be 1800x1395)', folder: 'civic-idea', autoCleanup: true },
 
   guides: {
       type: Types.Relationship,

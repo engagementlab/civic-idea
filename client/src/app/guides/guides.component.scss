@@ -1,4 +1,5 @@
 @import "~sass/_variables";
+
 #guides {
 
 	h1 {
@@ -8,7 +9,7 @@
 		
 		@include mobile-only {
 			font-size: em(144px, 2.25);
-			bottom: -20%;
+			bottom: -24%;
 		}
 		@include mq($from: tablet, $until: desktop) {
 			font-size: em(144px, 1.25);
@@ -43,6 +44,7 @@
 		p {
 		  font-size: em(24px);
 		  font-weight: 500;
+		  width: 70%;
 		  float: left;
 		}
 
@@ -51,10 +53,13 @@
 		  background-color: $dusty-orange;
 		  float: right;
 		  width: 50px;
-		  height: 50px;
 		  padding: 2%;
 		  text-align: center;
 			@include transition(all, 150ms, cubic-bezier(0.64, 0.57, 0.67, 1.53));
+			@include mobile-only {
+				width: 35px;
+			  height: 35px;
+		  }
 
 		  &:hover {
 		  	-webkit-transform: scale(1.2);
