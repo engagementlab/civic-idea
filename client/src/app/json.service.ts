@@ -19,7 +19,7 @@ export class JsonService {
 
     constructor(private http: HttpClient) {
 
-        this.baseUrl = (environment.production ? 'https://'+window.location.host : 'http://localhost:3000') + '/api/';
+        this.baseUrl = (environment.production ? 'https://localhost:3001' : 'http://localhost:3000') + '/api/';
 
     }
 

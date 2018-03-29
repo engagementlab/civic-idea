@@ -49,10 +49,6 @@ h3 {
   }
 }
 
-// img {
-//   width: 100%;
-// }
-
 .letter {
 
   font-size: em(90px);
@@ -61,8 +57,8 @@ h3 {
 }
 
 .condense p {
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 300;
+  @include font-roboto();
+
   font-stretch: condensed;
   line-height: 1.5;
   letter-spacing: 1px;

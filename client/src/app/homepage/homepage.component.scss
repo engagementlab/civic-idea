@@ -1,5 +1,17 @@
 @import "~sass/_variables";
 
+@include keyframes(scroll-text-anim) {
+  0% {
+    transform:  translate(0px,0px);
+  }
+  50% {
+    transform:  translate(0px, 50px);
+  }
+  100% {
+    transform:  translate(0px,0px);
+  }
+}
+
 h2.letter {
 
 	position: absolute;
@@ -22,7 +34,7 @@ h2.letter {
 	display: block;
 	min-height: 768px;
 	margin-bottom: 11%;
-	background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_1330/v1519317396/civic-idea/civic-idea-home-desktop_3x.png); 
+
 	background-repeat: no-repeat;
 	font-size: em(36px);
 	font-weight: 500;
@@ -32,15 +44,18 @@ h2.letter {
 	@include mq($from: mobile, $until: tablet) {
 		font-size: em(18px);
 		min-height: 567px;
-		background-image: url(http://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_320/v1519317323/civic-idea/civic-idea-home_3x.png);
+		background-image: cdn-image('home-mobile.png', 'b_rgb:ffffff', c_scale, q_100, w_320); 
+		background-size: contain;
 	}
 	@include mq($from: tablet, $and: '(orientation: landscape)') {
-		background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_1024/v1519317396/civic-idea/civic-idea-home-desktop_3x.png);
+		background-image: cdn-image('home.png', 'b_rgb:ffffff', c_scale, q_100, w_1024); 
+		background-position-y: 80%;
 	}
-	@include mq($from: wide) {
-		background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_1330/v1519317396/civic-idea/civic-idea-home-desktop_3x.png);
+	@include mq($from: wide) {		
+		background-image: cdn-image('home.png', 'b_rgb:ffffff', c_scale, q_100, w_1330); 
+		background-position-y: 84%;
+		min-height: 900px;
 	}
-
 
 	#modules {
 		text-transform: uppercase;
@@ -64,6 +79,37 @@ h2.letter {
 				margin-left: 2%;
 			} */
 		}			
+	}
+
+	#scroll {
+	  @include font-roboto();
+	  @include filter(opacity, 100%);
+		@include transition(filter, 700ms, linear);
+		@include animation('scroll-text-anim 5s infinite');
+		
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		text-align: center;
+		text-transform: uppercase;
+	  font-size: 10px;
+	  font-weight: bold;
+
+	  &.hidden {
+		  @include filter(opacity, 0%);
+	  }
+
+	  // Line below
+	  &::after {
+			display: table;
+		  left: 0;
+		  right: 0;
+		  margin: 0 auto;
+	  	content: " ";
+	  	border-left: solid 5px #000;
+	  	height: 50px;
+	  }
 	}
 
 }

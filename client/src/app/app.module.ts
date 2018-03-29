@@ -11,6 +11,7 @@ import { Cloudinary as CloudinaryCore } from 'cloudinary-core';
 import { CloudinaryConfiguration, CloudinaryModule } from '@cloudinary/angular-5.x';
 
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+import {NgsRevealModule} from 'ng-scrollreveal';
 import { LoadingModule } from 'ngx-loading';
 
 import cloudinaryConfiguration from './config';
@@ -65,6 +66,7 @@ const appRoutes: Routes = [
     CloudinaryModule.forRoot(cloudinary, config),
     ScrollToModule.forRoot(),
     NgbModule.forRoot(),
+    NgsRevealModule.forRoot(),
     BrowserAnimationsModule,
     LoadingModule,
     BrowserModule,

@@ -7,20 +7,24 @@
     <div class="col-sm-6 col-xl-3"><a href="#" (click)="triggerScrollTo('mediabreaker')">Media Breaker</a></div>
     <div class="col-sm-6 col-xl-3"><a href="#" (click)="triggerScrollTo('emergingcitizens')">Emerging Citizens</a></div>
   </div>
+  <div #scroll id="scroll">
+    scroll
+  </div>
 </div>
 
-<div *ngFor="let module of modules; let odd = odd; let i = index" class="row listing" [class.reverse]="odd" id="{{module.name | cleanString}}">
+<div *ngFor="let module of modules; let odd = odd; let i = index" class="row listing" [class.reverse]="odd" id="{{module.name | cleanString}}" [ngsReveal]="{ duration: 700, distance: '200px', origin: odd ? 'left' : 'right' }">
   <div class="col-md-5 offset-md-1">
     <h2 class="letter" *ngIf="i==0">I</h2>
     <h2 class="letter" *ngIf="i==1">D</h2>
     <h2 class="letter" *ngIf="i==2">E</h2>
     <h2 class="letter" *ngIf="i==3">A</h2>
-
+  <div class="img-responsive">
     <cdn-image cloudinaryId="{{module.introImage.public_id}}" width="540" quality="100"></cdn-image>
+  </div>
   </div>
   <div class="col-md-5 condense">
     <h2 id="{{module.name | cleanString}}_label">{{module.name}}</h2>
-    <p>{{module.intro}}</p>
+    <p>{{module.indexText}}</p>
     <app-button label="View more &rarr;" route="/module/{{module.url}}" ariaLabel="Read more about {{module.name}}"></app-button>
   </div>
 </div>
