@@ -90,54 +90,64 @@ nav {
 		}
 	}
 
-	#main-nav ul {
-		float: right;
-		list-style: none;
-		padding: 0;
-		li {
-	    margin: 0 3px;
-			float: left;
-		}
-		a {
-			font-size: em(24px);
-			@include mobile-only {
-				font-size: em(12px);
+	#main-nav {
+		ul {
+			float: right;
+			list-style: none;
+			padding: 0;
+			li {
+		    margin: 0 3px;
+				float: left;
 			}
-			
-			color: black;
-			
-			&:hover {
-				text-decoration: none;
-				.underline {
-					border-bottom: none;
+			a {
+				font-size: em(24px);
+				@include mobile-only {
+					font-size: em(12px);
 				}
-			}
-
-			&.active {
-
-				.underline {
-			    filter: opacity(0);
-				}
-				.duplicate {
-			    filter: opacity(1);
-					@include mobile-only {
-				    padding-top: 9%;
+				
+				color: black;
+				
+				&:hover {
+					text-decoration: none;
+					.underline {
+						border-bottom: none;
 					}
 				}
 
-			}
+				&.active {
 
-			.underline {
-				border-bottom: solid 4px $yellow;
-		    filter: opacity(1);
-				@include transition(all, 150ms, cubic-bezier(1.000, 0.000, 0.000, 1.000));
+					.underline {
+				    filter: opacity(0);
+					}
+					.duplicate {
+				    filter: opacity(1);
+						@include mobile-only {
+					    padding-top: 9%;
+						}
+					}
+
+				}
+
+				.underline {
+					border-bottom: solid 4px $yellow;
+			    filter: opacity(1);
+					@include transition(all, 150ms, cubic-bezier(1.000, 0.000, 0.000, 1.000));
+				}
+				.duplicate {
+					border-bottom: solid 4px $yellow;
+					position: absolute;
+			    filter: opacity(0);
+					height: 23%;
+					@include transition(all, 150ms, cubic-bezier(1.000, 0.000, 0.000, 1.000));
+				}
 			}
-			.duplicate {
-				border-bottom: solid 4px $yellow;
-				position: absolute;
-		    filter: opacity(0);
-				height: 23%;
-				@include transition(all, 150ms, cubic-bezier(1.000, 0.000, 0.000, 1.000));
+		}
+		
+		::ng-deep img {
+			width: auto;
+			float: right;
+			@include mobile-only {
+				width: 73px;
 			}
 		}
 	}
