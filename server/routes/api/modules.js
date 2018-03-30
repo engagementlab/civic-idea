@@ -38,24 +38,26 @@ var buildData = (params, res) => {
             promises.push(about);
             break;
     }
-/*
-    function(err, items) {
-        
-        if (err) return res.apiError('database error', err);
-        if (!items) return res.apiError('not found');
-        if (items.length < 1) return res.status(500).send('No items found!');
-
-        
-    });*/
 
     return Bluebird.all(promises.map(function (promise) {
       return promise.reflect();
     }))
-    .then(response => {
+    .then(results => {
 
-        let plucked = _.pluck(response, '_settledValueField');
+        let arrResponse = [];
 
-        return res.status(200).json({status: 200, data: plucked});
+        results.forEach(
+            result => {
+                if(result.isFulfilled()) {
+                    console.log('result.value()',result.value())
+                    arrResponse.push(result.value());
+                }
+                else
+                    console.error('Server error', result.reason());
+            }
+        );
+
+        return res.status(200).json({status: 200, data: arrResponse});
 
     }).catch(err => {
         console.log(err);
