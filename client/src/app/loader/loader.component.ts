@@ -15,7 +15,6 @@ export class LoaderComponent implements OnInit {
 		
 		this.jsonSvc.isLoading.subscribe( value => {
         this.isLoading = value;
-        console.log(value)
     } );
   
   }
@@ -27,16 +26,9 @@ export class LoaderComponent implements OnInit {
 
   	this.isLoading = true;
 
-  	// setTimeout(() => {
-  	// 	this.isLoading = false;
-  	// },
-  	// 500);
-
   }
-  stopLoading() {
 
-  	// this.isLoading = false;
-  	console.log('stop')
+  stopLoading() {
 
   }
 

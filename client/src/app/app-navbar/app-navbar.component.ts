@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { IsMobile } from 'angular-ismobile';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './app-navbar.component.html',
-  styleUrls: ['./app-navbar.component.scss'],
-  host: {
-    '(window:resize)': 'onResize($event)'
-  }
+  styleUrls: ['./app-navbar.component.scss']
 })
 export class AppNavbarComponent implements OnInit {
 
@@ -14,9 +12,5 @@ export class AppNavbarComponent implements OnInit {
 
   ngOnInit() {
   }
-
-   onResize(event){
-     console.log(event.target.innerWidth); // window width
-   }
 
 }

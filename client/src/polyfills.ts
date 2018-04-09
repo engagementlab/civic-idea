@@ -53,15 +53,13 @@ import 'core-js/es7/reflect';
 // import 'web-animations-js';  // Run `npm install --save web-animations-js`.
 
 
+/***************************************************************************************************
+ * APPLICATION IMPORTS
+ */
+import 'core-js/shim';
+
 
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */
 import 'zone.js/dist/zone';  // Included with Angular CLI.
-
-
-
-/***************************************************************************************************
- * APPLICATION IMPORTS
- */
-import 'core-js/shim';
