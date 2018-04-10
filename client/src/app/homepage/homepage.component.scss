@@ -47,6 +47,10 @@ h2.letter {
 		background-image: cdn-image('home-mobile.png', 'b_rgb:ffffff', c_scale, q_100, w_320); 
 		background-size: contain;
 	}
+	@include mq($from: tablet, $and: '(orientation: portrait)') {
+		background-image: cdn-image('home.png', 'b_rgb:ffffff', c_scale, q_100, w_768); 
+		background-position-y: 80%;
+	}
 	@include mq($from: tablet, $and: '(orientation: landscape)') {
 		background-image: cdn-image('home.png', 'b_rgb:ffffff', c_scale, q_100, w_1024); 
 		background-position-y: 80%;
