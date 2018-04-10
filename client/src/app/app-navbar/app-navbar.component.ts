@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IsMobile } from 'angular-ismobile';
+import * as ismobile from 'ismobilejs';
 
 @Component({
   selector: 'app-navbar',
@@ -8,9 +8,16 @@ import { IsMobile } from 'angular-ismobile';
 })
 export class AppNavbarComponent implements OnInit {
 
-  constructor() { }
+  isMobile: boolean; 
+
+  constructor() {
+  }
 
   ngOnInit() {
+
+    this.isMobile = ismobile.tablet || ismobile.phone;
+    console.log(this.isMobile)
+
   }
 
 }

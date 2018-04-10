@@ -20,7 +20,9 @@ nav {
 	a {
 		color: black;
 
-		@include mq($from: mobile) {
+		// Hover effect only on desktop devices
+		&:not(.mobile) {
+	
 			&:hover {
 				#civic {
 			    transform: translate(0, 40%);
@@ -30,6 +32,7 @@ nav {
 					@include filter(brightness, 0%);
 			  }
 			}
+
 		}
 
 		svg {
