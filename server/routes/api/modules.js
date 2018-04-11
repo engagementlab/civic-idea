@@ -48,10 +48,8 @@ var buildData = (params, res) => {
 
         results.forEach(
             result => {
-                if(result.isFulfilled()) {
-                    console.log('result.value()',result.value())
+                if(result.isFulfilled())
                     arrResponse.push(result.value());
-                }
                 else
                     console.error('Server error', result.reason());
             }

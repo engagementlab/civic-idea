@@ -1,6 +1,6 @@
 <nav class="navbar fixed-top container" role="banner">
   <h1>
-    <a routerLink="/" routerLinkActive="active">
+    <a routerLink="/" [ngClass]="{'mobile': isMobile}">
         <svg viewBox="17.307 0 56.473 15.593" width="56.473" height="15.593" id="civic">
           <title>civic</title>
           <mask id="d" fill="#fff">
@@ -51,14 +51,12 @@
     <ul class="ml-auto">
       <li class="nav-item active">
         <a routerLink="/about" routerLinkActive="active">
-          <span class="duplicate">About</span>
-          <span class="underline">About</span>
+          <span>About</span>
         </a>
       </li>
       <li class="nav-item">
         <a routerLink="/guides" routerLinkActive="active">
-          <span class="duplicate">Guides</span>
-          <span class="underline">Guides</span>
+          <span>Guides</span>
         </a>
       </li>
     </ul>
