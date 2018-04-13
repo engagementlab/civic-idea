@@ -24,6 +24,7 @@ export class HomepageComponent implements OnInit {
   @HostListener('window:scroll', ['$event']) onWindowScroll(evt){
     // Cross-browser horsegarbage
     let pageY: number = evt.pageY || evt.target.documentElement.scrollTop || this._document.body.scrollTop;
+    console.log(evt)
 
     if((pageY / this._document.body.offsetHeight) > .15)
       this.scrollArrow.nativeElement.className = 'hidden';
@@ -42,11 +43,11 @@ export class HomepageComponent implements OnInit {
         });
   }
 
-  public triggerScrollTo(event: NamedNodeMap) {
+  public triggerScrollTo(id: string) {
     
     this._scrollToService
       .scrollTo({
-        target: event["data-link"].nodeValue,
+        target: id,
         easing: 'easeOutElastic',
         duration: 2000
       });

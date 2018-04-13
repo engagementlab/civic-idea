@@ -1,11 +1,11 @@
 <div id="blurb" class="row">
+  <!-- <img src="assets\img\myimage.png"> -->
   <div class="col-md-12" [innerHtml]="index?.intro.html"></div>
   <div id="modules" class="row col-sm-12">
-
-    <div *ngFor="let module of modules" class="col-sm-6 col-xl-3">
-      <a href="#" [attr.data-link]="module.name | cleanString" (click)="triggerScrollTo($event.originalTarget.attributes)">{{module.name}}</a>
-    </div>
-    
+    <div class="col-sm-6 col-xl-3"><a href="#" (click)="triggerScrollTo('databasic.io')">Databasic.io</a></div>
+    <div class="col-sm-6 col-xl-3"><a href="#" (click)="triggerScrollTo('@stake')">@Stake</a></div>
+    <div class="col-sm-6 col-xl-3"><a href="#" (click)="triggerScrollTo('mediabreaker')">Media Breaker</a></div>
+    <div class="col-sm-6 col-xl-3"><a href="#" (click)="triggerScrollTo('emergingcitizens')">Emerging Citizens</a></div>
   </div>
   <div #scroll id="scroll">
     scroll

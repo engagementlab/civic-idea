@@ -14,13 +14,9 @@
 </div>
 
 <h3>Activity Guides</h3>
-<div *ngIf="module?.lessonPlanPdf !== undefined" class="col-centered col-sm-12 col-md-6" id="lesson">
-    <div><h4>Lesson Plan</h4></div>
-    <div><app-button label="Download pdf &#10515;" href="{{module?.lessonPlanPdf.url}}" ariaLabel="Download Lesson Plan PDF"></app-button></div>
-</div>
 <div class="row">
 
-  <div *ngFor="let guide of module?.guides;" class="col-md-3 guide condense">
+  <div *ngFor="let guide of module?.guides;" class="col-md-4 guide condense">
     <h4 id="{{guide.name | cleanString}}_label">{{guide.name}}</h4>
     <cl-image *ngIf="guide.thumbnail !== undefined" public-id="{{guide.thumbnail.public_id}}" width="400" quality="100" crop="scale" fetch-format="auto" secure="true" responsive></cl-image>
   
