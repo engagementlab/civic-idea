@@ -35,13 +35,16 @@
 	margin-bottom: 11%;
 }
 
-#guide {	
+#sidebar {
 	border: solid 4px $light-gold;
-	max-height: 350px;
-  margin-bottom: 5%;
+	
+	.download {	
+		max-height: 350px;
+	  margin-bottom: 5%;
 
-	h4 {
-		padding-top: 7%;
+		h4 {
+			padding-top: 7%;
+		}
 	}
 }
 
