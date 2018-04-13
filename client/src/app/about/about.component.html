@@ -9,10 +9,17 @@
   <div class="col-md-6 condense">
   	<p [innerHtml]="about?.description.html"></p>
   </div>
-  <div class="col-md-5 offset-md-1 condense" id="guide">
-    <h4>Civic IDEA Concept Paper</h4>
-    <p [innerHtml]="about?.conceptDescription.html"></p>
-    <app-button label="Download pdf &#10515;" href="{{about?.conceptPdf.url}}" ariaLabel="Download Concept PDF"></app-button>
+  <div class="col-md-5 offset-md-1 condense" id="sidebar">
+    <div class="download">
+      <h4>Civic IDEA Concept Paper</h4>
+      <p [innerHtml]="about?.conceptDescription.html"></p>
+      <app-button label="Download pdf &#10515;" href="{{about?.conceptPdf.url}}" ariaLabel="Download Concept PDF"></app-button>
+    </div>
+    <div class="download">
+      <h4>Civic IDEA Workshop</h4>
+      <p [innerHtml]="about?.facilitationDescription.html"></p>
+      <app-button label="Download pdf &#10515;" href="{{about?.facilitationPdf.url}}" ariaLabel="Download Workshop PDF"></app-button>
+    </div>
   </div>
 
 </div>

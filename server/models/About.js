@@ -54,6 +54,8 @@ About.add({
 	description: { type: Types.Markdown, label: "Description", initial: true, required: true },
 	conceptDescription: { type: Types.Markdown, label: "Concept Paper Description", initial: true, required: true },
 	conceptPdf: { type: Types.File, label: "Concept PDF", storage: azureFile },
+  facilitationDescription: { type: Types.Markdown, label: "Facilitation Guide Description", initial: true, required: true },
+  facilitationPdf: { type: Types.File, label: "Facilitation Guide PDF", storage: azureFile },
 
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
 });
