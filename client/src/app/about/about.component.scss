@@ -37,9 +37,9 @@
 
 #sidebar {
 	border: solid 4px $light-gold;
+	max-height: 500px;
 	
 	.download {	
-		max-height: 350px;
 	  margin-bottom: 5%;
 
 		h4 {

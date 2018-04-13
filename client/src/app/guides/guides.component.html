@@ -7,7 +7,7 @@
 <div *ngFor="let module of modules" class="module">
 	<h3>{{module.name}}</h3>
 	<div class="row">
-	  <div *ngFor="let guide of module.guides" class="col-md-4 guide">
+	  <div *ngFor="let guide of module.guides" class="col-md-3 guide">
 
 	    <cl-image *ngIf="guide.thumbnail !== undefined" public-id="{{guide.thumbnail.public_id}}" width="398" quality="100" crop="scale" fetch-format="auto" secure="true" responsive></cl-image>
 	    
