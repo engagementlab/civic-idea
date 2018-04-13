@@ -26,24 +26,6 @@ var Module = new keystone.List('Module',
 		nodelete: true
 	});
 
-// Storage adapter for Azure
-const azureFile = new keystone.Storage({
-  adapter: require('keystone-storage-adapter-azure'),
-  azure: {
-    container: 'civicidea',
-    generateFilename: function (file) {
-        // Cleanup filename
-        return file.originalname.replace(/[\\'\-\[\]\/\{\}\(\)\*\+\?\\\^\$\|]/g, "").replace(/ /g, '_').toLowerCase();
-    }
-  },
-  schema: {
-    path: true,
-    originalname: true,
-    url: true
-  }
-});
-
-
 /**
  * Model Fields
  * @main Module
@@ -57,8 +39,6 @@ Module.add({
 	indexText: { type: Types.Text, label: 'Index Page Text', required: true, initial: true },
 	intro: { type: Types.Text, label: 'Module Intro Text', required: true, initial: true, note: 'Text blurb for site homepage.' },
 	introImage: { type: Types.CloudinaryImage, label: 'Intro Image (dimensions should be 1800x1395)', folder: 'civic-idea', autoCleanup: true },
-
-	lessonPlanPdf: { type: Types.File, label: "Lesson Plan PDF", storage: azureFile },
 
   guides: {
       type: Types.Relationship,
