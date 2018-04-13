@@ -24,6 +24,25 @@
 	}
 }
 
+#lesson {
+	border: solid 4px $light-gold;
+	text-align: center;
+	margin-bottom: 3%;
+	@include mq($from: tablet) {
+		div {
+			width: 49%;
+			display: inline-block;
+			vertical-align: middle;
+			line-height: 30px;      
+		}
+	}
+	
+	@include mobile-only {
+	 padding: 9%;
+	}
+
+}
+
 .guide {
 
 	ul {
@@ -59,7 +78,7 @@
 	  font-weight: bold;
 	}
 
-	&:not(:nth-child(3n)) {
+	&:not(:nth-child(4n)) {
 		@include mobile-only {
 			border-bottom: solid 2px black;
 			border-right: none;
