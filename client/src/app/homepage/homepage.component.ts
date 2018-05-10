@@ -42,11 +42,11 @@ export class HomepageComponent implements OnInit {
         });
   }
 
-  public triggerScrollTo(event: NamedNodeMap) {
+  public triggerScrollTo(name: string) {
     
     this._scrollToService
       .scrollTo({
-        target: event["data-link"].nodeValue,
+        target: name.replace(/\s/g, "").toLowerCase(),
         easing: 'easeOutElastic',
         duration: 2000
       });

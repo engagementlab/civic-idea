@@ -3,7 +3,7 @@
   <div id="modules" class="row col-sm-12">
 
     <div *ngFor="let module of modules" class="col-sm-6 col-xl-3">
-      <a href="#" [attr.data-link]="module.name | cleanString" (click)="triggerScrollTo($event.originalTarget.attributes)">{{module.name}}</a>
+      <a href="#" (click)="triggerScrollTo(module.name)">{{module.name}}</a>
     </div>
     
   </div>
