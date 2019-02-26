@@ -23,7 +23,8 @@ var Module = new keystone.List('Module',
 		singular: 'Module',
 		autokey: { path: 'key', from: 'name', unique: true },
 		nocreate: true,
-		nodelete: true
+		nodelete: true,
+    sortable: true
 	});
 
 // Storage adapter for Azure
