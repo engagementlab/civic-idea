@@ -13,7 +13,7 @@
   </div>
 </div>
 
-<h3>Activity Guides</h3>
+<h3 id="guides">Activity Guides</h3>
 <div *ngIf="module?.lessonPlanPdf !== undefined" class="col-centered col-sm-12 col-md-6" id="lesson">
     <div><h4>Lesson Plan</h4></div>
     <div><app-button label="Download pdf &#10515;" href="{{module?.lessonPlanPdf.url}}" ariaLabel="Download Lesson Plan PDF"></app-button></div>
