@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
         if (!(evt instanceof NavigationEnd)) {
           return;
         }
-        if(evt.url.indexOf('/#') === 0)
+        if(evt.url.indexOf('/#') === 0 || evt.url.indexOf('#') > 0)
           return;
 
         this._scrollToService

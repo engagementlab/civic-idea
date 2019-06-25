@@ -5,7 +5,7 @@
 </div>
 
 <div *ngFor="let module of modules" class="module">
-	<h3>{{module.name}}</h3>
+	<h3 [id]="module.name | cleanString">{{module.name}}</h3>
 	<div class="row">
 	  <div *ngFor="let guide of module.guides" class="col-md-3 guide">
 
