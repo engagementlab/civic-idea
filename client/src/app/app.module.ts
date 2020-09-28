@@ -65,7 +65,6 @@ const appRoutes: Routes = [
     ),
     CloudinaryModule.forRoot(cloudinary, config),
     ScrollToModule.forRoot(),
-    NgbModule.forRoot(),
     NgsRevealModule.forRoot(),
     BrowserAnimationsModule,
     LoadingModule,

@@ -18,10 +18,10 @@ export class ModuleComponent implements OnInit {
 
 	getModule() {
 
-    this.jsonSvc.getAllData('module/'+this.moduleId)
-        .subscribe(response => {
-          this.module = response.get(this.moduleId);
-        });
+    // this.jsonSvc.getAllData('module/'+this.moduleId)
+    //     .subscribe(response => {
+    //       this.module = response.get(this.moduleId);
+    //     });
 
 	}
 

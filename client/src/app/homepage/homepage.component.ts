@@ -2,7 +2,7 @@ import { Component, OnInit, HostListener, Inject,
          ViewChild,
          AfterViewInit,
          ElementRef } from '@angular/core';
-import { DOCUMENT } from "@angular/platform-browser";
+import { DOCUMENT } from "@angular/common";
 import { JsonService } from '../json.service';
 import { fadeInAnimation } from '../_animations/fade';
 import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
@@ -31,15 +31,12 @@ export class HomepageComponent implements OnInit {
       this.scrollArrow.nativeElement.className = '';
   };
   
-  getData(): void {
-    this.jsonSvc.getAllData('index')
-        .subscribe(response => {
-          
-          let modulesMap = response.get("modules");
-          this.modules = Array.from(modulesMap.values());
-          this.index = response.get("index");
-          
-        });
+  async getData() {
+    const response = await this.jsonSvc.getAllData('index');
+    let modulesMap = response[1];
+    this.modules = Array.from(modulesMap.values());
+    this.index = response[0];
+
   }
 
   public triggerScrollTo(name: string) {
@@ -54,7 +51,7 @@ export class HomepageComponent implements OnInit {
 
   constructor(private jsonSvc: JsonService, private _scrollToService: ScrollToService, @Inject(DOCUMENT) private _document: any) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.getData();
   }
 

@@ -1,15 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-import { Observable } from 'rxjs/Observable';
+import { Subject, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Response } from '@angular/http';
-import { catchError } from 'rxjs/operators';
-import { environment } from '../environments/environment';
 
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/throw';
-import 'rxjs/add/observable/of';
 
 @Injectable()
 export class JsonService {
@@ -19,7 +12,7 @@ export class JsonService {
 
     constructor(private http: HttpClient) {
 
-        this.baseUrl = (environment.production ? 'https://'+window.location.host : 'http://localhost:3000') + '/api/';
+        this.baseUrl = 'https://civicidea.org';
 
     }
 
@@ -83,9 +76,28 @@ export class JsonService {
 
     }
 	
-    getAllData(type: string): Observable<any> {
+    getAllData(type: string): Promise<unknown> {
 
-
+        const content =  new Promise<unknown>((resolve, reject) => {
+        
+            return this.http.get(`${this.baseUrl}/api/get/${type}`).toPromise().then(res =>{
+            //   console.log(`get data from ${url}`,this.http.get(url))
+              
+              // Cache result in state
+            //   this.transferState.setState('index', res);
+              resolve(res['data']);
+              return res['data'];
+            })
+            .catch((error: any) => {
+              reject(error);
+              console.error(error)
+              this.isLoading.next(false);
+              return throwError(error);
+            });
+    
+          });
+          return content;
+/* 
         if(type.indexOf('module/') > -1 && this.haveData(type))
             return Observable.of(this.modules).map((d:any) => d);
         else if(this.haveData(type)) {
@@ -102,6 +114,8 @@ export class JsonService {
                 return Observable.throw(error);
             })
 
-        }
+        } */
+
+
 	}
 }

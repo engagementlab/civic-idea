@@ -14,13 +14,13 @@ export class GuidesComponent implements OnInit {
 	modules: any[];
   
   getData(): void {
-    this.jsonSvc.getAllData('index')
-        .subscribe(response => {
+    // this.jsonSvc.getAllData('index')
+    //     .subscribe(response => {
           
-          let modulesMap = response.get("modules");
-          this.modules = Array.from(modulesMap.values());
+    //       let modulesMap = response.get("modules");
+    //       this.modules = Array.from(modulesMap.values());
           
-        });
+    //     });
   }
   
   constructor(private jsonSvc: JsonService) { }

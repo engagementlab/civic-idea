@@ -16,10 +16,10 @@ export class AboutComponent implements OnInit {
 	about: any;
 	getData() {
 
-    this.jsonSvc.getAllData('about')
-		    .subscribe(response => {
-		    	this.about = response.get("about");
-		    });
+    // this.jsonSvc.getAllData('about')
+		//     .subscribe(response => {
+		//     	this.about = response.get("about");
+		//     });
 
 	}
 
