@@ -22,7 +22,7 @@ export const config: CloudinaryConfiguration = cloudinaryConfiguration;
 
 import { AppComponent } from './app.component';
 import { JsonService } from './json.service';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 import { AppFooterComponent } from './app-footer/app-footer.component';
@@ -37,12 +37,7 @@ import { ButtonComponent } from './button/button.component';
 import { CdnImageComponent } from './cdn-image/cdn-image.component';
 import { LoaderComponent } from './loader/loader.component';
 
-const appRoutes: Routes = [
-  { path: '', component: HomepageComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'guides', component: GuidesComponent },
-  { path: 'module/:id', component: ModuleComponent }
-];
+import { ScullyLibModule } from '@scullyio/ng-lib';
 
 @NgModule({
   declarations: [
@@ -60,9 +55,6 @@ const appRoutes: Routes = [
     LoaderComponent
   ],
   imports: [
-    RouterModule.forRoot(
-      appRoutes
-    ),
     CloudinaryModule.forRoot(cloudinary, config),
     ScrollToModule.forRoot(),
     NgsRevealModule.forRoot(),
@@ -71,7 +63,8 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ScullyLibModule
   ],
   exports: [
     RouterModule,

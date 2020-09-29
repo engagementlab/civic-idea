@@ -16,18 +16,15 @@ export class ModuleComponent implements OnInit {
 	module: any;
 	moduleId: string;
 
-	getModule() {
-
-    // this.jsonSvc.getAllData('module/'+this.moduleId)
-    //     .subscribe(response => {
-    //       this.module = response.get(this.moduleId);
-    //     });
-
+	async getModule() {      
+      const response = await this.jsonSvc.getAllData('module/'+this.moduleId);
+      this.module = response;
 	}
 
 	constructor(private route: ActivatedRoute, private router: Router, private jsonSvc: JsonService) {
-		
-		this.moduleId = this.route.snapshot.params.id;
+    
+    // console.log(this.route.snapshot)
+		this.moduleId = this.route.snapshot.url[1].path;
 		this.getModule();
 
 	}

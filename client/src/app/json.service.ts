@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Subject, throwError } from 'rxjs';
-import { Observable } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
+import { isScullyGenerated, TransferStateService } from '@scullyio/ng-lib';
 
 @Injectable()
 export class JsonService {
@@ -10,7 +10,8 @@ export class JsonService {
     baseUrl: string;
     public isLoading: Subject<boolean> = new Subject<boolean>();
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, 
+        private transferState: TransferStateService) {
 
         this.baseUrl = 'https://civicidea.org';
 
@@ -78,44 +79,41 @@ export class JsonService {
 	
     getAllData(type: string): Promise<unknown> {
 
-        const content =  new Promise<unknown>((resolve, reject) => {
-        
-            return this.http.get(`${this.baseUrl}/api/get/${type}`).toPromise().then(res =>{
-            //   console.log(`get data from ${url}`,this.http.get(url))
-              
-              // Cache result in state
-            //   this.transferState.setState('index', res);
-              resolve(res['data']);
-              return res['data'];
+        // If scully is building or dev build, cache data from content API in transferstate
+        if (!isScullyGenerated()) {
+        const content = new Promise < unknown > ((resolve, reject) => {
+
+            return this.http.get(`${this.baseUrl}/api/get/${type}`).toPromise().then(res => {
+                //   Cache result in state
+                this.transferState.setState(type, res['data']);
+                resolve(res['data']);
+                return res['data'];
             })
             .catch((error: any) => {
-              reject(error);
-              console.error(error)
-              this.isLoading.next(false);
-              return throwError(error);
-            });
-    
-          });
-          return content;
-/* 
-        if(type.indexOf('module/') > -1 && this.haveData(type))
-            return Observable.of(this.modules).map((d:any) => d);
-        else if(this.haveData(type)) {
-            return Observable.of(this.data).map((d:any) => d);
-        }
-        else  {
-            this.isLoading.next(true);
-            return this.http.get(this.baseUrl+'get/'+type)
-            .map((res:any)=> {
-              return this.assembleData(res.data, type);
-            })
-            .catch((error:any) => { 
+                reject(error);
+                console.error(error)
                 this.isLoading.next(false);
-                return Observable.throw(error);
-            })
+                return throwError(error);
+            });
 
-        } */
-
+        });
+        return content;
+        } else {
+        const state = new Promise < unknown[] > ((resolve, reject) => {
+            try {
+            this.transferState
+                .getState < unknown[] > (type)
+                .subscribe(res => {
+                console.log('res', res)
+                resolve(res)
+                return res;
+                });
+            } catch (error) {
+            this.isLoading.next(false);
+            }
+        });
+        return state;
+        }
 
 	}
 }

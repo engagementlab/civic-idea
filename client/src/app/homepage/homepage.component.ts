@@ -33,6 +33,7 @@ export class HomepageComponent implements OnInit {
   
   async getData() {
     const response = await this.jsonSvc.getAllData('index');
+    console.log('home',response)
     let modulesMap = response[1];
     this.modules = Array.from(modulesMap.values());
     this.index = response[0];

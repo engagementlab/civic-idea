@@ -14,12 +14,10 @@ import { fadeInAnimation } from '../_animations/fade';
 export class AboutComponent implements OnInit {
 
 	about: any;
-	getData() {
+	async getData() {
 
-    // this.jsonSvc.getAllData('about')
-		//     .subscribe(response => {
-		//     	this.about = response.get("about");
-		//     });
+    const response = await this.jsonSvc.getAllData('about');
+    this.about = response[0];
 
 	}
 
