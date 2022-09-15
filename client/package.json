@@ -30,7 +30,7 @@
     "@scullyio/ng-lib": "^1.0.0",
     "@scullyio/scully": "^1.0.0",
     "@types/ismobilejs": "^0.4.1",
-    "bootstrap": "^4.0.0-alpha.6",
+    "bootstrap": "^4.3.1",
     "cloudinary-core": "^2.5.0",
     "core-js": "^2.4.1",
     "dotenv": "^5.0.1",
